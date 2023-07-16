@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "newPlayerData", menuName = "Namitrus Game/Player Data/Player")]
+[CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/Player Data/Player")]
 public class PlayerData : ScriptableObject {
 
     [Header("Move State")]

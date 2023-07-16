@@ -10459,16 +10459,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 0, y: -1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 1, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -11520,16 +11510,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 0, y: 1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 1, y: 1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -24511,13 +24491,13 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 2385
+  - m_RefCount: 2383
     m_Data: {fileID: 11400000, guid: 14ab7190a82841e47a550fc5a21aa25e, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 2385
+  - m_RefCount: 2383
     m_Data: {fileID: 1579265410, guid: a521f6e0f775e2a4c88fa193e1eec7fc, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 2385
+  - m_RefCount: 2383
     m_Data:
       e00: 1
       e01: 0
@@ -24536,7 +24516,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 2385
+  - m_RefCount: 2383
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -24699,7 +24679,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.3633567, y: 0.5471723}
@@ -24724,7 +24704,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 770620760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 231e9d316b0cc634db51828219e4fdcb, type: 3}
+  m_Script: {fileID: 11500000, guid: 45b99690246bff541b1bd1fe0e0b0a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &785897577
@@ -24903,6 +24883,7 @@ GameObject:
   - component: {fileID: 1276821828}
   - component: {fileID: 1276821827}
   - component: {fileID: 1276821826}
+  - component: {fileID: 1276821830}
   m_Layer: 9
   m_Name: ' Combat Dummy'
   m_TagString: Untagged
@@ -25049,6 +25030,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1276821830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276821825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ac04f21d1597f459df84cdc84e940a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1428984774
 GameObject:
   m_ObjectHideFlags: 0
