@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d1a0eb0ffdc1ff449372e13ac0605bd, type: 3}
-  m_Name: Sword
+  m_Name: Fists
   m_EditorClassIdentifier: 
   attackDetails:
-  - attackName: Attack one
-    movementSpeed: 2
+  - attackName: Punch 1
+    movementSpeed: 0.2
+    damageAmount: 3
+    comboTimer: 0
+  - attackName: Punch 2
+    movementSpeed: 0.3
+    damageAmount: 4
+    comboTimer: 0
+  - attackName: Punch 3
+    movementSpeed: 0.2
     damageAmount: 5
-    comboTimer: 2
-  - attackName: Attack two
-    movementSpeed: 3
-    damageAmount: 7
-    comboTimer: 2
-  - attackName: Attack three
-    movementSpeed: 1
-    damageAmount: 9
-    comboTimer: 2
+    comboTimer: 0
