@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public Transform DashDirectionIndicator { get; private set; }
-    public PlayerInventory Inventory { get; private set; }
+    public EquippedWeapon EquippedWeapon { get; private set; }
     #endregion
 
     #region Other Variables
@@ -71,9 +71,9 @@ public class Player : MonoBehaviour {
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
         DashDirectionIndicator = transform.Find("DashDirectionIndicator");
-        Inventory = GetComponent<PlayerInventory>();
+        EquippedWeapon = GetComponent<EquippedWeapon>();
 
-        PrimaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
+        PrimaryAttackState.SetWeapon(EquippedWeapon.weapon);
         //SecondaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
 
         StateMachine.Initialize(IdleState);

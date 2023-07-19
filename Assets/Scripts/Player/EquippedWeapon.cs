@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class EquippedWeapon : MonoBehaviour
 {
-    public Weapon[] weapons;
+    public Weapon weapon;
 }
