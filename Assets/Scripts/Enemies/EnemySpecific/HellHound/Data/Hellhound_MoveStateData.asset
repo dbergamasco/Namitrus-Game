@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 257d95b84f520dd44a7d9955ac85a702, type: 3}
-  m_Name: HellhoundIdleStateData
+  m_Script: {fileID: 11500000, guid: 36b031eb081faf54d83282ecb1a4f790, type: 3}
+  m_Name: Hellhound_MoveStateData
   m_EditorClassIdentifier: 
-  minIdleTime: 1
-  maxIdleTime: 2
+  movementSpeed: 3

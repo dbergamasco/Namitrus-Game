@@ -25,10 +25,13 @@ public class Hellhound_playedDetectedState : PlayerDetectedState
     {
         base.LogicUpdate();
 
-        if(!isPlayerInMaxAgroRange)
+        if(performLongRangeAction)
         {
-            hellhound.idleState.SetFlipAfterIdle(false);
-            stateMachine.ChangeState(hellhound.idleState);
+            stateMachine.ChangeState(hellhound.chargeState);
+        }
+        else if(!isPlayerInMaxAgroRange)
+        {
+            stateMachine.ChangeState(hellhound.lookForPlayerstate);
         }
     }
 
