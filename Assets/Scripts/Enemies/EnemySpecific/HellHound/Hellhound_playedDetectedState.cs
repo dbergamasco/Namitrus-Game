@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HellHound_moveState : MoveState
+public class Hellhound_playedDetectedState : PlayerDetectedState
 {
     private Hellhound hellhound;
 
-    public HellHound_moveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_MoveState stateData, Hellhound hellhound) : base(entity, stateMachine, animBoolName, stateData)
+    public Hellhound_playedDetectedState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetectedState stateData, Hellhound hellhound) : base(entity, stateMachine, animBoolName, stateData)
     {
         this.hellhound = hellhound;
     }
@@ -25,13 +25,9 @@ public class HellHound_moveState : MoveState
     {
         base.LogicUpdate();
 
-        if(isPlayerInMinAgroRange)
+        if(!isPlayerInMaxAgroRange)
         {
-            stateMachine.ChangeState(hellhound.playerDetectedState);
-        }
-        else if(isDetectingWall || !isDetectingLedge)
-        {
-            hellhound.idleState.SetFlipAfterIdle(true);
+            hellhound.idleState.SetFlipAfterIdle(false);
             stateMachine.ChangeState(hellhound.idleState);
         }
     }

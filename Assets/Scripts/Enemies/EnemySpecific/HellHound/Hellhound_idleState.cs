@@ -25,7 +25,11 @@ public class Hellhound_idleState : IdleState
     {
         base.LogicUpdate();
 
-        if(isIdleTimeOver)
+        if(isPlayerInMinAgroRange)
+        {
+            stateMachine.ChangeState(hellhound.playerDetectedState);
+        }
+        else if(isIdleTimeOver)
         {
             stateMachine.ChangeState(hellhound.moveState);
         }
