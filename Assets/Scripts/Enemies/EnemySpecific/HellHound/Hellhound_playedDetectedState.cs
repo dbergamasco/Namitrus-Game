@@ -25,7 +25,11 @@ public class Hellhound_playedDetectedState : PlayerDetectedState
     {
         base.LogicUpdate();
 
-        if(performLongRangeAction)
+        if(performCloseRangeAction)
+        {
+            stateMachine.ChangeState(hellhound.meeleAttackState);
+        }
+        else if(performLongRangeAction)
         {
             stateMachine.ChangeState(hellhound.chargeState);
         }

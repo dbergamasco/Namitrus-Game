@@ -9,3 +9,9 @@ public struct WeaponAttackDetails
     public float movementSpeed;
     public float damageAmount;
 }
+
+public struct AttackDetails
+{
+    public Vector2 position;
+    public float damageAmount;
+}

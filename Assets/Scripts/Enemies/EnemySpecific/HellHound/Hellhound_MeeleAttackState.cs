@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hellhound_ChargeState : ChargeState
+public class Hellhound_MeeleAttackState : MeleeAttackState
 {
     private Hellhound hellhound;
 
-    public Hellhound_ChargeState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_ChargeState stateData, Hellhound hellhound) : base(entity, stateMachine, animBoolName, stateData)
+    public Hellhound_MeeleAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_Melee_AttackState stateData, Hellhound hellhound) : base(entity, stateMachine, animBoolName, attackPosition, stateData)
     {
         this.hellhound = hellhound;
     }
@@ -26,34 +26,35 @@ public class Hellhound_ChargeState : ChargeState
         base.Exit();
     }
 
+    public override void FinishAttack()
+    {
+        base.FinishAttack();
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();
 
-        if(performCloseRangeAction)
-        {
-            stateMachine.ChangeState(hellhound.meeleAttackState);
-        }
-        else if(!isDetectingLedge || isDetectingWall)
-        {
-            stateMachine.ChangeState(hellhound.lookForPlayerstate);
-        }
-        else if(isChargeTimeOver)
+        if(isAnimationFinish)
         {
             if(isPlayerInMinAgroRange)
             {
-                stateMachine.ChangeState(hellhound.playerDetectedState);
+               stateMachine.ChangeState(hellhound.playerDetectedState); 
             }
             else
             {
                 stateMachine.ChangeState(hellhound.lookForPlayerstate);
             }
         }
-        
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+
+    public override void TriggerAttack()
+    {
+        base.TriggerAttack();
     }
 }

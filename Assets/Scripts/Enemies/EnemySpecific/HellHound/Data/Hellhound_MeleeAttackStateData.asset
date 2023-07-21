@@ -9,17 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3036c3a5d86db2d4ca307c85fe803566, type: 3}
-  m_Name: Hellhound_Data
+  m_Script: {fileID: 11500000, guid: 935951a19c84464448486a2b2d72b89f, type: 3}
+  m_Name: Hellhound_MeleeAttackStateData
   m_EditorClassIdentifier: 
-  wallCheckDistance: 0.2
-  ledgeCheckDistance: 0.4
-  maxAgroDistance: 7
-  minAgroDistance: 5
-  closeRangeActionDistance: 2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 128
-  whatIsPlayer:
+  attackRadius: 0.7
+  attackDamage: 10
+  whatsIsPlayer:
     serializedVersion: 2
     m_Bits: 64

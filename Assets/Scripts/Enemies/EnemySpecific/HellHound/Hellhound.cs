@@ -9,6 +9,7 @@ public class Hellhound : Entity
     public Hellhound_playedDetectedState playerDetectedState { get; private set; }
     public Hellhound_ChargeState chargeState { get; private set; }
     public Hellhound_LookForPlayerState lookForPlayerstate { get; private set; }
+    public Hellhound_MeeleAttackState meeleAttackState { get; private set; }
 
     [SerializeField]
     private D_IdleState idleStateData;
@@ -20,6 +21,11 @@ public class Hellhound : Entity
     private D_ChargeState chargeStateData;
     [SerializeField]
     private D_LookForPlayerState lookForPlayerStateData;
+    [SerializeField]
+    private D_Melee_AttackState meleeAttackStateData;
+
+    [SerializeField]
+    private Transform meleeAttackPosition;
 
     public override void Start()
     {
@@ -30,8 +36,16 @@ public class Hellhound : Entity
         playerDetectedState = new Hellhound_playedDetectedState(this, stateMachine, "playerDetected", playerDetectedData, this);
         chargeState = new Hellhound_ChargeState(this, stateMachine, "charge", chargeStateData, this);
         lookForPlayerstate = new Hellhound_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerStateData, this);
+        meeleAttackState = new Hellhound_MeeleAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
         
         stateMachine.Initialize(idleState);
+    }
+
+    public override void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
+
+        Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.attackRadius);
     }
 
 }
