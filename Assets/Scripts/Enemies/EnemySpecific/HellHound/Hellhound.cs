@@ -10,6 +10,8 @@ public class Hellhound : Entity
     public Hellhound_ChargeState chargeState { get; private set; }
     public Hellhound_LookForPlayerState lookForPlayerstate { get; private set; }
     public Hellhound_MeeleAttackState meeleAttackState { get; private set; }
+    public Hellhound_StunState stunState { get; private set; }
+    public Hellhound_DeadState deadState { get; private set; }
 
     [SerializeField]
     private D_IdleState idleStateData;
@@ -23,6 +25,10 @@ public class Hellhound : Entity
     private D_LookForPlayerState lookForPlayerStateData;
     [SerializeField]
     private D_Melee_AttackState meleeAttackStateData;
+    [SerializeField]
+    private D_StunState stunStateData;
+    [SerializeField]
+    private D_DeadState deadStateData;
 
     [SerializeField]
     private Transform meleeAttackPosition;
@@ -37,6 +43,8 @@ public class Hellhound : Entity
         chargeState = new Hellhound_ChargeState(this, stateMachine, "charge", chargeStateData, this);
         lookForPlayerstate = new Hellhound_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerStateData, this);
         meeleAttackState = new Hellhound_MeeleAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
+        stunState = new Hellhound_StunState(this, stateMachine, "stun", stunStateData, this);
+        deadState = new Hellhound_DeadState(this, stateMachine, "dead", deadStateData, this);
         
         stateMachine.Initialize(idleState);
     }
@@ -46,6 +54,22 @@ public class Hellhound : Entity
         base.OnDrawGizmos();
 
         Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.attackRadius);
+    }
+
+    public override void Damage(AttackDetails attackDetails)
+    {
+        base.Damage(attackDetails);
+
+        if(isDead)
+        {
+            stateMachine.ChangeState(deadState);
+        } 
+        else if(isStunned && stateMachine.currentState != stunState)
+        {
+            stateMachine.ChangeState(stunState);
+        }
+
+        
     }
 
 }

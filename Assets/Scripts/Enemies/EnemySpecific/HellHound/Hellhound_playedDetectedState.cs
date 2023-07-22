@@ -36,6 +36,10 @@ public class Hellhound_playedDetectedState : PlayerDetectedState
         else if(!isPlayerInMaxAgroRange)
         {
             stateMachine.ChangeState(hellhound.lookForPlayerstate);
+        } else if(!isDetectingLedge)
+        {
+            entity.Flip();
+            stateMachine.ChangeState(hellhound.moveState);
         }
     }
 
