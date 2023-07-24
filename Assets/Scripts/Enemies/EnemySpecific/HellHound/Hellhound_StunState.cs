@@ -40,6 +40,11 @@ public class Hellhound_StunState : StunState
             {
                 stateMachine.ChangeState(hellhound.chargeState);
             }
+            else
+            {
+                hellhound.lookForPlayerState.SetTurnInmediately(true);
+                stateMachine.ChangeState(hellhound.lookForPlayerState);
+            }
         }
     }
 

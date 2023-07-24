@@ -8,7 +8,7 @@ public class Hellhound : Entity
     public HellHound_moveState moveState { get; private set; }
     public Hellhound_playedDetectedState playerDetectedState { get; private set; }
     public Hellhound_ChargeState chargeState { get; private set; }
-    public Hellhound_LookForPlayerState lookForPlayerstate { get; private set; }
+    public Hellhound_LookForPlayerState lookForPlayerState { get; private set; }
     public Hellhound_MeeleAttackState meeleAttackState { get; private set; }
     public Hellhound_StunState stunState { get; private set; }
     public Hellhound_DeadState deadState { get; private set; }
@@ -41,7 +41,7 @@ public class Hellhound : Entity
         idleState = new Hellhound_idleState(this, stateMachine, "idle", idleStateData, this);
         playerDetectedState = new Hellhound_playedDetectedState(this, stateMachine, "playerDetected", playerDetectedData, this);
         chargeState = new Hellhound_ChargeState(this, stateMachine, "charge", chargeStateData, this);
-        lookForPlayerstate = new Hellhound_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerStateData, this);
+        lookForPlayerState = new Hellhound_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerStateData, this);
         meeleAttackState = new Hellhound_MeeleAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
         stunState = new Hellhound_StunState(this, stateMachine, "stun", stunStateData, this);
         deadState = new Hellhound_DeadState(this, stateMachine, "dead", deadStateData, this);
@@ -68,8 +68,10 @@ public class Hellhound : Entity
         {
             stateMachine.ChangeState(stunState);
         }
-
-        
+        else if(!CheckPlayerInMinAgroRange())
+        {
+            lookForPlayerState.SetTurnInmediately(true);
+            stateMachine.ChangeState(lookForPlayerState);
+        }
     }
-
 }

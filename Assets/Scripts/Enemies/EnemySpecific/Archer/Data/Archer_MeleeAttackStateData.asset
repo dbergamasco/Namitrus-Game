@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feb9c1abfde9d6a49b2021305972f48f, type: 3}
-  m_Name: Hellhound_StunStateData
+  m_Script: {fileID: 11500000, guid: 935951a19c84464448486a2b2d72b89f, type: 3}
+  m_Name: Archer_MeleeAttackStateData
   m_EditorClassIdentifier: 
-  stunTime: 3
-  stunKnockbackTime: 0.2
-  stunKnockbackSpeed: 20
-  stunKnockbackAngle: {x: 1, y: 2}
+  attackRadius: 0.5
+  attackDamage: 3
+  whatsIsPlayer:
+    serializedVersion: 2
+    m_Bits: 64

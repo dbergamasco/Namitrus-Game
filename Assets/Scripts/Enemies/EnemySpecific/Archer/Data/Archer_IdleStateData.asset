@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feb9c1abfde9d6a49b2021305972f48f, type: 3}
-  m_Name: Hellhound_StunStateData
+  m_Script: {fileID: 11500000, guid: 257d95b84f520dd44a7d9955ac85a702, type: 3}
+  m_Name: Archer_IdleStateData
   m_EditorClassIdentifier: 
-  stunTime: 3
-  stunKnockbackTime: 0.2
-  stunKnockbackSpeed: 20
-  stunKnockbackAngle: {x: 1, y: 2}
+  minIdleTime: 0.5
+  maxIdleTime: 3

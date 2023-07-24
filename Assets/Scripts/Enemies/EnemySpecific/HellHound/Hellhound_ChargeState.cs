@@ -36,7 +36,7 @@ public class Hellhound_ChargeState : ChargeState
         }
         else if(!isDetectingLedge || isDetectingWall)
         {
-            stateMachine.ChangeState(hellhound.lookForPlayerstate);
+            stateMachine.ChangeState(hellhound.lookForPlayerState);
         }
         else if(isChargeTimeOver)
         {
@@ -46,7 +46,7 @@ public class Hellhound_ChargeState : ChargeState
             }
             else
             {
-                stateMachine.ChangeState(hellhound.lookForPlayerstate);
+                stateMachine.ChangeState(hellhound.lookForPlayerState);
             }
         }
         

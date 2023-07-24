@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hellhound_MeeleAttackState : MeleeAttackState
+public class Archer_MeleeAttackState : MeleeAttackState
 {
-    private Hellhound hellhound;
+    private Archer archer;
 
-    public Hellhound_MeeleAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_Melee_AttackState stateData, Hellhound hellhound) : base(entity, stateMachine, animBoolName, attackPosition, stateData)
+    public Archer_MeleeAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_Melee_AttackState stateData, Archer archer) : base(entity, stateMachine, animBoolName, attackPosition, stateData)
     {
-        this.hellhound = hellhound;
+        this.archer = archer;
     }
 
     public override void DoChecks()
@@ -39,11 +39,11 @@ public class Hellhound_MeeleAttackState : MeleeAttackState
         {
             if(isPlayerInMinAgroRange)
             {
-               stateMachine.ChangeState(hellhound.playerDetectedState); 
+                stateMachine.ChangeState(archer.playerDetectedState);
             }
-            else
+            else if(!isPlayerInMinAgroRange)
             {
-                stateMachine.ChangeState(hellhound.lookForPlayerState);
+                stateMachine.ChangeState(archer.lookForPlayerState);
             }
         }
     }

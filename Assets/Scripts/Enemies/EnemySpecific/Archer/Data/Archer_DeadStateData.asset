@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec9cbcd9a4c8b2844b7e1c8545b7bc8f, type: 3}
-  m_Name: Hellhound_DeadStateData
+  m_Name: Archer_DeadStateData
   m_EditorClassIdentifier: 
   deathChunkParticle: {fileID: 4573165492688083778, guid: 5cdbbfee89eb9b04faaffca932bb0409, type: 3}
   deathBloodParticle: {fileID: 1828721141799758636, guid: 0a5feee9ecc1e7b43bcb4ea4f4d761d4, type: 3}

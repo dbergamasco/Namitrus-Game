@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3036c3a5d86db2d4ca307c85fe803566, type: 3}
-  m_Name: Hellhound_Data
+  m_Name: Archer_BaseData
   m_EditorClassIdentifier: 
   maxHealth: 30
   damageHopSpeed: 3
   wallCheckDistance: 0.2
-  ledgeCheckDistance: 1
+  ledgeCheckDistance: 0.4
   groundCheckRadius: 0.3
-  maxAgroDistance: 7
-  minAgroDistance: 5
+  maxAgroDistance: 6
+  minAgroDistance: 3
   stunResistance: 3
   stunRecoveryTime: 2
-  closeRangeActionDistance: 1.5
+  closeRangeActionDistance: 1
   hitParticle: {fileID: 6108274031930762578, guid: 37ef6c40567be82408635fe7d2042cd3, type: 3}
   whatIsGround:
     serializedVersion: 2
