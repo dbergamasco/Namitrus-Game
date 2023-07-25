@@ -64,6 +64,8 @@ public class Entity : MonoBehaviour
     public virtual void FixedUpdate() 
     {
         stateMachine.currentState.PhysicsUpdate();
+
+        anim.SetFloat("yVelocity", rb.velocity.y);;
     }
 
     public virtual void SetVelocity(float velocity)

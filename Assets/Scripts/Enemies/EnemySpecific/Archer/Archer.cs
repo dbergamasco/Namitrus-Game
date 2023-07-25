@@ -11,6 +11,8 @@ public class Archer : Entity
     public Archer_LookForPlayerState lookForPlayerState { get; private set; }
     public Archer_StunState stunState { get; private set; }
     public Archer_DeadState deadState { get; private set; }
+    public Archer_DodgeState dodgeState { get; private set; }
+    public Archer_RangedAttackState rangedAttackState { get; private set; }
 
     [SerializeField]
     private D_MoveState moveStateData;
@@ -26,9 +28,16 @@ public class Archer : Entity
     private D_StunState stunStateData;
     [SerializeField]
     private D_DeadState deadStateData;
+    [SerializeField]
+    public D_DodgeState dodgeStateData;
+    [SerializeField]
+    public D_RangedAttackState rangedAttackStateData;
 
     [SerializeField]
     private Transform meleeAttackPosition;
+    [SerializeField]
+    private Transform rangedAttackPosition;
+
 
 
     public override void Start()
@@ -42,6 +51,9 @@ public class Archer : Entity
         lookForPlayerState = new Archer_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerStateData, this);
         stunState = new Archer_StunState(this, stateMachine, "stun", stunStateData, this);
         deadState = new Archer_DeadState(this, stateMachine, "dead", deadStateData, this);
+        dodgeState = new Archer_DodgeState(this, stateMachine, "dodge", dodgeStateData, this);
+        rangedAttackState = new Archer_RangedAttackState(this, stateMachine, "rangedAttack", rangedAttackPosition, rangedAttackStateData, this);
+
 
         stateMachine.Initialize(moveState);
     }
@@ -57,6 +69,10 @@ public class Archer : Entity
         else if(isStunned && stateMachine.currentState != stunState)
         {
             stateMachine.ChangeState(stunState);
+        }
+        else if(CheckPlayerInMinAgroRange())
+        {
+            stateMachine.ChangeState(rangedAttackState);
         }
         else if(!CheckPlayerInMinAgroRange())
         {

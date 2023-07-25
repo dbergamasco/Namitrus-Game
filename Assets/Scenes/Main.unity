@@ -484,7 +484,10 @@ MonoBehaviour:
   lookForPlayerStateData: {fileID: 11400000, guid: 3a85893eaa63de74ea68a1bfef61e35b, type: 2}
   stunStateData: {fileID: 11400000, guid: 7f3ab3a7aa55b0146bfb6d491d1d0282, type: 2}
   deadStateData: {fileID: 11400000, guid: e388df6dc1971f54396b2a22697a479b, type: 2}
+  dodgeStateData: {fileID: 11400000, guid: 1f794b6532d827e45ad4b40af7a416f6, type: 2}
+  rangedAttackStateData: {fileID: 11400000, guid: f8cd6345ed210fc48b0a39dde3f3b078, type: 2}
   meleeAttackPosition: {fileID: 1574106825}
+  rangedAttackPosition: {fileID: 829918962}
 --- !u!4 &560654025
 Transform:
   m_ObjectHideFlags: 0
@@ -493,7 +496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560654023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.34, y: 3.74, z: 0}
+  m_LocalPosition: {x: -17.81, y: 3.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24652,6 +24655,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &829918961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829918962}
+  m_Layer: 9
+  m_Name: RangedAttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &829918962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829918961}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.315, y: -0.045, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1364926802}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &956415788
 GameObject:
   m_ObjectHideFlags: 0
@@ -24947,6 +24981,7 @@ Transform:
   - {fileID: 1982811893}
   - {fileID: 92924050}
   - {fileID: 1574106825}
+  - {fileID: 829918962}
   m_Father: {fileID: 560654025}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25010,7 +25045,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 8
   m_Material: {fileID: 6200000, guid: cfe074fa7691cd045b2e83efe6d6678b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
