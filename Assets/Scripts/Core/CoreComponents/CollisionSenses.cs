@@ -8,52 +8,25 @@ public class CollisionSenses : CoreComponent
 
     public Transform GroundCheck 
     {
-        get
-        {
-            if(groundCheck)
-                return groundCheck;
-
-            Debug.LogError("No GroundCheck on " + core.transform.parent.name);
-            return null;
-        } 
-        private set { groundCheck = value; }
+        get => GenericNotImplementedError<Transform>.TryGet(groundCheck, core.transform.parent.name);
+        private set => groundCheck = value;
     }
     public Transform WallCheck
     {
-        get
-        {
-            if(wallCheck)
-                return wallCheck;
-
-            Debug.LogError("No WallCheck on " + core.transform.parent.name);
-            return null;
-        } 
-        private set { wallCheck = value; }
+        get => GenericNotImplementedError<Transform>.TryGet(wallCheck, core.transform.parent.name);
+        private set => wallCheck = value;
     }
     public Transform LedgeCheckHorizontal
     {
-        get
-        {
-            if(ledgeCheckHorizontal)
-                return ledgeCheckHorizontal;
-
-            Debug.LogError("No LedgeCheckHorizontal on " + core.transform.parent.name);
-            return null;
-        } 
-        private set { ledgeCheckHorizontal = value; }
+        get => GenericNotImplementedError<Transform>.TryGet(ledgeCheckHorizontal, core.transform.parent.name);
+        private set => ledgeCheckHorizontal = value;
     }
     public Transform LedgeCheckVertical
     {
-        get
-        {
-            if(ledgeCheckVertical)
-                return ledgeCheckVertical;
-
-            Debug.LogError("No LedgeCheckVertical on " + core.transform.parent.name);
-            return null;
-        } 
-        private set { ledgeCheckVertical = value; }
+        get => GenericNotImplementedError<Transform>.TryGet(ledgeCheckVertical, core.transform.parent.name);
+        private set => ledgeCheckVertical = value;
     }
+    
     public float GroundCheckRadius { get => groundCheckRadius; set => groundCheckRadius = value; }
     public float WallCheckDistance { get => wallCheckDistance; set => wallCheckDistance = value; }
     public LayerMask WhatIsGround { get => whatIsGround; set => whatIsGround = value; }

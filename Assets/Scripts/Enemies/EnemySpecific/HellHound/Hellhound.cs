@@ -45,8 +45,11 @@ public class Hellhound : Entity
         meeleAttackState = new Hellhound_MeeleAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
         stunState = new Hellhound_StunState(this, stateMachine, "stun", stunStateData, this);
         deadState = new Hellhound_DeadState(this, stateMachine, "dead", deadStateData, this);
-        
-        stateMachine.Initialize(idleState);
+    }
+    
+    private void Start() 
+    {
+        stateMachine.Initialize(moveState);
     }
 
     public override void OnDrawGizmos()
@@ -56,22 +59,4 @@ public class Hellhound : Entity
         Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.attackRadius);
     }
 
-    public override void Damage(AttackDetails attackDetails)
-    {
-        base.Damage(attackDetails);
-
-        if(isDead)
-        {
-            stateMachine.ChangeState(deadState);
-        } 
-        else if(isStunned && stateMachine.currentState != stunState)
-        {
-            stateMachine.ChangeState(stunState);
-        }
-        else if(!CheckPlayerInMinAgroRange())
-        {
-            lookForPlayerState.SetTurnInmediately(true);
-            stateMachine.ChangeState(lookForPlayerState);
-        }
-    }
 }

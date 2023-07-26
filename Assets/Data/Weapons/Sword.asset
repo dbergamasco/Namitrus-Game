@@ -16,12 +16,15 @@ MonoBehaviour:
   - attackName: Attack one
     movementSpeed: 2
     damageAmount: 5
-    comboTimer: 2
+    knockbackStrength: 10
+    knockbackAngle: {x: 1, y: 1}
   - attackName: Attack two
     movementSpeed: 3
     damageAmount: 7
-    comboTimer: 2
+    knockbackStrength: 10
+    knockbackAngle: {x: 1, y: 1}
   - attackName: Attack three
     movementSpeed: 1
     damageAmount: 9
-    comboTimer: 2
+    knockbackStrength: 10
+    knockbackAngle: {x: 1, y: 2}
