@@ -50,7 +50,7 @@ public class Archer_PlayerDetectedState : PlayerDetectedState
             stateMachine.ChangeState(archer.lookForPlayerState);
         } else if(!isDetectingLedge)
         {
-            core.Movement.Flip();
+            Movement?.Flip();
             stateMachine.ChangeState(archer.moveState);
         }
     }

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
     [SerializeField] protected SO_WeaponData weaponData;
 
     private Animator baseAnimator;

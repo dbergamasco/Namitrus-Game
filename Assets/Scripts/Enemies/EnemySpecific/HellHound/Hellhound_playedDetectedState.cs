@@ -38,7 +38,7 @@ public class Hellhound_playedDetectedState : PlayerDetectedState
             stateMachine.ChangeState(hellhound.lookForPlayerState);
         } else if(!isDetectingLedge)
         {
-            core.Movement.Flip();
+            Movement?.Flip();
             stateMachine.ChangeState(hellhound.moveState);
         }
     }
