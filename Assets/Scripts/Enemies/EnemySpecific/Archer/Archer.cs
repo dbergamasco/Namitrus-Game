@@ -40,9 +40,9 @@ public class Archer : Entity
 
 
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         moveState = new Archer_MoveState(this, stateMachine, "move", moveStateData, this);
         idleState = new Archer_IdleState(this, stateMachine, "idle", idleStateData, this);

@@ -33,9 +33,9 @@ public class Hellhound : Entity
     [SerializeField]
     private Transform meleeAttackPosition;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
         
         moveState = new HellHound_moveState(this, stateMachine, "move", moveStateData, this);
         idleState = new Hellhound_idleState(this, stateMachine, "idle", idleStateData, this);
