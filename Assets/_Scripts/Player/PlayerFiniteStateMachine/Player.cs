@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Script.Weapons;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour 
+{
 
     #region State Variables
     [SerializeField]
@@ -41,12 +43,16 @@ public class Player : MonoBehaviour {
     #region Other Variables
     private Vector2 workspace;
 
+    private Weapon weapon;
+
     #endregion
 
     #region Unity Callback Functions
     private void Awake()
     {
         Core = GetComponentInChildren<Core>();
+
+        weapon = transform.Find("Weapon").GetComponent<Weapon>();
         
         StateMachine = new PlayerStateMachine();
 
@@ -61,9 +67,8 @@ public class Player : MonoBehaviour {
         WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
         DashState = new PlayerDashState(this, StateMachine, playerData, "inAir");
+        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon);
 
-        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
-        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
     }
 
     private void Start() {
