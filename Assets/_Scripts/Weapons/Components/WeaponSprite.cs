@@ -5,14 +5,12 @@ using UnityEngine;
 
 namespace _Scripts.Weapons.Components
 {
-    public class WeaponSprite : WeaponComponent
+    public class WeaponSprite : WeaponComponent<WeaponSpriteData>
     {
         private SpriteRenderer baseSpriteRenderer;
         private SpriteRenderer weaponSpriteRenderer;
 
         private int currentWeaponSpriteIndex;
-
-        private WeaponSpriteData data;
 
         protected override void HandleEnter()
         {
@@ -48,8 +46,6 @@ namespace _Scripts.Weapons.Components
             
             baseSpriteRenderer = transform.parent.Find("Base").GetComponent<SpriteRenderer>();
             weaponSpriteRenderer = GetComponent<SpriteRenderer>();
-
-            data = weapon.Data.GetData<WeaponSpriteData>();
 
             //TODO: FIX THIS WHEN CREATE WEAPON DATA
             //baseSpriteRenderer = weapon.BaseGameObject.GetComponent<SpriteRenderer>();

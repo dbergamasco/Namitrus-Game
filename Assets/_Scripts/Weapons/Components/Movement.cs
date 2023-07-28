@@ -4,12 +4,10 @@ using UnityEngine;
 
 namespace _Scripts.Weapons.Components
 {
-    public class Movement : WeaponComponent
+    public class Movement : WeaponComponent<MovementData>
     {
         private CoreSystem.Movement coreMovement;
         private CoreSystem.Movement CoreMovement => coreMovement ? coreMovement : Core.GetCoreComponent(ref coreMovement);
-
-        private MovementData data;
 
         private void HandleStartMovement()
         {
@@ -21,13 +19,6 @@ namespace _Scripts.Weapons.Components
         private void HandleStopMovement()
         {
             CoreMovement.SetVelocityZero();
-        }
-
-        protected override void Awake()
-        {
-            base.Awake();
-
-            data = weapon.Data.GetData<MovementData>();
         }
 
         protected override void OnEnable()

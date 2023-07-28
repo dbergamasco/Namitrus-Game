@@ -38,4 +38,16 @@ namespace _Scripts.Weapons.Components
             weapon.OnExit -= HandleExit;
         }
     }
+
+    public abstract class WeaponComponent<T> : WeaponComponent where T : ComponentData
+    {
+        protected T data;
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            data = weapon.Data.GetData<T>();
+        }
+    }
 }
