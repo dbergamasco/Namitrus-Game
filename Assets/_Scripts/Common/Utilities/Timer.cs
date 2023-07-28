@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Script.Utilities{
+namespace _Scripts.Utilities{
     public class Timer
     {
         public event Action OnTimerDone;

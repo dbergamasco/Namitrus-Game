@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using _Script.Utilities;
+using _Scripts.Utilities;
 using _Scripts.CoreSystem;
 
 namespace _Scripts.Weapons
