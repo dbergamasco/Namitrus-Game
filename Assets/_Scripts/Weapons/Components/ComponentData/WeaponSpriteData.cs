@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using _Scripts.Weapons.Components.ComponentData.AttackData;
 using UnityEngine;
 
-namespace _Scripts.Weapons.Components.ComponentData
+namespace _Scripts.Weapons.Components
 {
     public class WeaponSpriteData : ComponentData
     {
