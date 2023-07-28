@@ -1,4 +1,4 @@
-using _Script.Weapons;
+using _Scripts.Weapons;
 
 public class PlayerAttackState : PlayerAbilityState
 {

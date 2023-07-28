@@ -1,4 +1,4 @@
-using _Script.Weapons;
+using _Scripts.Weapons;
 using _Scripts.CoreSystem;
 using UnityEngine;
 

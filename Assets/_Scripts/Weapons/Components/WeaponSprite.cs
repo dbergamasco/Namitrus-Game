@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using _Scripts.Weapons.Components.ComponentData;
 using UnityEngine;
 
-namespace _Script.Weapons.Components
+namespace _Scripts.Weapons.Components
 {
     public class WeaponSprite : WeaponComponent
     {

@@ -1,10 +1,9 @@
 using System;
 using UnityEngine;
 using _Script.Utilities;
-using _Scripts.Weapons;
 using _Scripts.CoreSystem;
 
-namespace _Script.Weapons
+namespace _Scripts.Weapons
 {
     public class Weapon : MonoBehaviour
     {

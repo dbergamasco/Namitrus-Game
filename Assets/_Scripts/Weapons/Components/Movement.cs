@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using _Script.Weapons.Components;
 using UnityEngine;
 
 namespace _Scripts.Weapons.Components

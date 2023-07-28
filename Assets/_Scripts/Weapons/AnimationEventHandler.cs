@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace _Script.Weapons
+namespace _Scripts.Weapons
 {
     public class AnimationEventHandler : MonoBehaviour
     {

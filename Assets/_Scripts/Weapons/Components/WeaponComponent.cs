@@ -1,7 +1,7 @@
 using _Scripts.CoreSystem;
 using UnityEngine;
 
-namespace _Script.Weapons.Components
+namespace _Scripts.Weapons.Components
 {
     public abstract class WeaponComponent : MonoBehaviour
     {
