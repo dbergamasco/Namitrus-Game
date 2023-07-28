@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using _Scripts.CoreSystem;
 using UnityEngine;
 
 public class ChargeState : State

@@ -1,34 +1,37 @@
 using System;
 using UnityEngine;
 
-public class Stats : CoreComponent
+namespace _Scripts.CoreSystem
 {
-    public event Action OnHealthZero;
-
-    [SerializeField] private float maxHealth;
-    private float currentHealth;
-
-    protected override void Awake()
+    public class Stats : CoreComponent
     {
-        base.Awake();
+        public event Action OnHealthZero;
 
-        currentHealth = maxHealth;
-    }
+        [SerializeField] private float maxHealth;
+        private float currentHealth;
 
-    public void DecreaseHealth(float amount)
-    {
-        currentHealth -= amount;
-
-        if(currentHealth <= 0)
+        protected override void Awake()
         {
-            currentHealth = 0;
-            
-            OnHealthZero?.Invoke();
-        }
-    }
+            base.Awake();
 
-    public void IncreaseHealth(float amount)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            currentHealth = maxHealth;
+        }
+
+        public void DecreaseHealth(float amount)
+        {
+            currentHealth -= amount;
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+
+                OnHealthZero?.Invoke();
+            }
+        }
+
+        public void IncreaseHealth(float amount)
+        {
+            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        }
     }
 }

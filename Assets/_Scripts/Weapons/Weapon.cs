@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using _Script.Utilities;
 using _Scripts.Weapons;
+using _Scripts.CoreSystem;
 
 namespace _Script.Weapons
 {
@@ -26,7 +27,9 @@ namespace _Script.Weapons
         public GameObject BaseGameObject { get; private set; }
         public GameObject WeaponSpriteGameObject { get; private set; }
 
-        private AnimationEventHandler eventHandler;
+        public AnimationEventHandler EventHandler { get; private set; }
+
+        public Core Core { get; private set; } 
 
         private int currentAttackCounter;
 
@@ -43,6 +46,11 @@ namespace _Script.Weapons
             anim.SetInteger("counter", CurrentAttackCounter);
 
             OnEnter?.Invoke();
+        }
+
+        public void SetCore(Core core)
+        {
+            Core = core;
         }
 
         private void Exit()
@@ -62,7 +70,7 @@ namespace _Script.Weapons
 
             anim = BaseGameObject.GetComponent<Animator>();
 
-            eventHandler = BaseGameObject.GetComponent<AnimationEventHandler>();
+            EventHandler = BaseGameObject.GetComponent<AnimationEventHandler>();
 
             attackCounterResetTimer = new Timer(attackCounterResetCooldown);
         }
@@ -76,13 +84,13 @@ namespace _Script.Weapons
 
         private void OnEnable()
         {
-            eventHandler.OnFinish += Exit;
+            EventHandler.OnFinish += Exit;
             attackCounterResetTimer.OnTimerDone += ResetAttackCounter;
         }
 
         private void OnDisable()
         {
-            eventHandler.OnFinish -= Exit;
+            EventHandler.OnFinish -= Exit;
             attackCounterResetTimer.OnTimerDone -= ResetAttackCounter;
         }
 

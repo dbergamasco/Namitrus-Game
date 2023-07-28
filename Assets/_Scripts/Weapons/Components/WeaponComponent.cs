@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using _Scripts.CoreSystem;
 using UnityEngine;
 
 namespace _Script.Weapons.Components
@@ -8,11 +7,19 @@ namespace _Script.Weapons.Components
     {
         protected Weapon weapon;
 
+        //TODO: FIX this when finishing weapon data
+        //protected AnimationEventHandler EventHandler => weapon.EventHandler;
+
+        protected AnimationEventHandler eventHandler;
+        protected Core Core => weapon.Core;
+
         protected bool isAttackActive;
 
         protected virtual void Awake()
         {
             weapon = GetComponentInParent<Weapon>();
+
+            eventHandler = GetComponentInChildren<AnimationEventHandler>();
         }
 
         protected virtual void HandleEnter() => isAttackActive = true;

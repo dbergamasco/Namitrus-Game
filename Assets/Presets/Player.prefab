@@ -801,6 +801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557044473847423407}
   - component: {fileID: 5736661512669728899}
+  - component: {fileID: 8189751192901206253}
   m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
@@ -839,6 +840,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Data>k__BackingField: {fileID: 11400000, guid: 84c8b864d7c5f044cbb061c47317ac0f, type: 2}
   attackCounterResetCooldown: 1
+--- !u!114 &8189751192901206253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852448266650494595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9070848dc3155f4a8146a8a23c3e737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6072120402481618060
 GameObject:
   m_ObjectHideFlags: 0

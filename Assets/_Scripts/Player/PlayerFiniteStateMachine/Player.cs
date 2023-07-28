@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using _Script.Weapons;
+using _Scripts.CoreSystem;
 using UnityEngine;
 
 public class Player : MonoBehaviour 
@@ -53,6 +52,8 @@ public class Player : MonoBehaviour
         Core = GetComponentInChildren<Core>();
 
         weapon = transform.Find("Weapon").GetComponent<Weapon>();
+
+        weapon.SetCore(Core);
         
         StateMachine = new PlayerStateMachine();
 

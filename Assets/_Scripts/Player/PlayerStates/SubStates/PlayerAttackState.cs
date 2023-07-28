@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using _Script.Weapons;
-using UnityEngine;
 
 public class PlayerAttackState : PlayerAbilityState
 {
