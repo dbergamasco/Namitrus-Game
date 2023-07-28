@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Scripts.Weapons.Components
 {
-    public class WeaponSprite : WeaponComponent<WeaponSpriteData>
+    public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
     {
         private SpriteRenderer baseSpriteRenderer;
         private SpriteRenderer weaponSpriteRenderer;
@@ -27,7 +27,7 @@ namespace _Scripts.Weapons.Components
                 return;
             }
 
-            var currentAttackSprites = data.AttackData[weapon.CurrentAttackCounter].Sprites;
+            var currentAttackSprites = currentAttackData.Sprites;
 
             if(currentWeaponSpriteIndex >= currentAttackSprites.Length)
             {
