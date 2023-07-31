@@ -15,7 +15,7 @@ MonoBehaviour:
   <NumberOfAttacks>k__BackingField: 3
   <ComponentData>k__BackingField:
   - rid: 2756479599362441219
-  - rid: 2756479599362441220
+  - rid: 2756479667812433923
   references:
     version: 2
     RefIds:
@@ -41,7 +41,7 @@ MonoBehaviour:
           - {fileID: 1065601525, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
           - {fileID: 203493574, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
           - {fileID: 1879950651, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-    - rid: 2756479599362441220
+    - rid: 2756479667812433923
       type: {class: MovementData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:
         <AttackData>k__BackingField:
@@ -49,5 +49,5 @@ MonoBehaviour:
           <Velocity>k__BackingField: 2
         - <Direction>k__BackingField: {x: 1, y: 0}
           <Velocity>k__BackingField: 3
-        - <Direction>k__BackingField: {x: 1, y: 0}
+        - <Direction>k__BackingField: {x: 1, y: 2}
           <Velocity>k__BackingField: 2

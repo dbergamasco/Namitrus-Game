@@ -6,5 +6,6 @@ namespace _Scripts.Weapons.Components
 {
     public class WeaponSpriteData : ComponentData<AttackSprites>
     {
+        
     }
 }
