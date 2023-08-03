@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamageable
+namespace _Scripts.Interfaces
 {
-    void Damage(float damage)
+    public interface IDamageable
     {
-
+        void Damage(float damage);
+        float CalcRangeDamage(float damage);
     }
 }

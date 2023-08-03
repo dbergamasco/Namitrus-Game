@@ -1,3 +1,4 @@
+using _Scripts.Interfaces;
 using UnityEngine;
 
 namespace _Scripts.CoreSystem

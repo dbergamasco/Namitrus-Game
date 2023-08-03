@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ILogicUpdate
+namespace _Scripts.Interfaces
 {
-    void LogicUpdate();
+    public interface ILogicUpdate
+    {
+        void LogicUpdate();
+    }
 }
