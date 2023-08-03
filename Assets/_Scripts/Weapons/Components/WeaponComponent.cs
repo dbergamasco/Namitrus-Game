@@ -51,6 +51,11 @@ namespace _Scripts.Weapons.Components
             data = weapon.Data.GetData<T1>();
         }
 
+        protected virtual void Start()
+        {
+            
+        }
+
         protected override void HandleEnter()
         {
             base.HandleEnter();

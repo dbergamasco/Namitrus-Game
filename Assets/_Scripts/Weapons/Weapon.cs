@@ -37,8 +37,6 @@ namespace _Scripts.Weapons
 
         public void Enter()
         {
-            Debug.Log($"{transform.name} enter");
-
             attackCounterResetTimer.StopTimer();
 
             anim.SetBool("active", true);
