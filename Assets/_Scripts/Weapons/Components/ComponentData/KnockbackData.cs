@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace _Scripts.Weapons.Components
 {
-    public class WeaponSpriteData : ComponentData<AttackSprites>
+    public class KnockbackData : ComponentData<AttackKnockback>
     {
         protected override void SetComponentDependecy()
         {
-            ComponentDependency = typeof(WeaponSprite);
+            ComponentDependency = typeof(Knockback);
         }
     }
 }

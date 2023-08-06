@@ -6,7 +6,7 @@ using UnityEngine;
 namespace _Scripts.Weapons.Components
 {
     [Serializable]
-    public class ComponentData
+    public abstract class ComponentData
     {
         [SerializeField, HideInInspector] private string name;
 
@@ -15,16 +15,19 @@ namespace _Scripts.Weapons.Components
         public ComponentData()
         {
             SetComponentName();
+            SetComponentDependecy();
         }
 
         public void SetComponentName() => name = GetType().Name;
+
+        protected abstract void SetComponentDependecy();
 
         public virtual void SetAttackDataNames(){}
         public virtual void InitializeAttackData(int numberOfAttacks){}
     }
 
     [Serializable]
-    public class ComponentData<T> : ComponentData where T : AttackData
+    public abstract class ComponentData<T> : ComponentData where T : AttackData
     {
         [SerializeField] private T[] attackData;
 

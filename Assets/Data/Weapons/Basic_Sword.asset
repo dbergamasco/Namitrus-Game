@@ -18,6 +18,7 @@ MonoBehaviour:
   - rid: 8757109922973351936
   - rid: 8757109922973351937
   - rid: 8757109922973351938
+  - rid: 8757109985612398596
   references:
     version: 2
     RefIds:
@@ -104,3 +105,17 @@ MonoBehaviour:
           <Amount>k__BackingField: 10
         - name: Attack 3
           <Amount>k__BackingField: 10
+    - rid: 8757109985612398596
+      type: {class: KnockbackData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        name: KnockbackData
+        attackData:
+        - name: Attack 1
+          <Angle>k__BackingField: {x: 1, y: 0}
+          <Strength>k__BackingField: 1
+        - name: Attack 2
+          <Angle>k__BackingField: {x: 1, y: 0}
+          <Strength>k__BackingField: 1
+        - name: Attack 3
+          <Angle>k__BackingField: {x: 0, y: 1}
+          <Strength>k__BackingField: 3

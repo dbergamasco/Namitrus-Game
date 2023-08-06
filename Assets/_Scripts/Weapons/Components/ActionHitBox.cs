@@ -11,7 +11,7 @@ namespace _Scripts.Weapons.Components
 
         public event Action<Collider2D[]> OnDetectedCollider2D;
 
-        private CoreComp<CoreSystem.Movement> movement;
+        private CoreSystem.Movement movement;
 
         private Vector2 offset;
         private Collider2D[] detected;
@@ -20,7 +20,7 @@ namespace _Scripts.Weapons.Components
         {
 
             offset.Set(
-                transform.position.x + (currentAttackData.HitBox.center.x * movement.Comp.FacingDirection),
+                transform.position.x + (currentAttackData.HitBox.center.x * movement.FacingDirection),
                 transform.position.y + currentAttackData.HitBox.center.y
             );
             detected = Physics2D.OverlapBoxAll(offset, currentAttackData.HitBox.size, 0f, data.DetectableLayers);
@@ -35,7 +35,7 @@ namespace _Scripts.Weapons.Components
         {
             base.Start();
 
-            movement = new CoreComp<CoreSystem.Movement>(Core);
+            movement = Core.GetCoreComponent<CoreSystem.Movement>();
             eventHandler.OnAttackAction += HandleAttackAction;
         }
 

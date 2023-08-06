@@ -18,6 +18,7 @@ MonoBehaviour:
   - rid: 8757109922973351936
   - rid: 8757109922973351937
   - rid: 8757109922973351938
+  - rid: 8757109985612398597
   references:
     version: 2
     RefIds:
@@ -28,25 +29,25 @@ MonoBehaviour:
         attackData:
         - name: Attack 1
           <Sprites>k__BackingField:
-          - {fileID: -1713411254, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: -1555567517, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: -9324181, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: -868260884, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: -1834550701, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
+          - {fileID: 335190439, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: 1830715353, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: 1819272694, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: -1433433508, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: 1053468181, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
         - name: Attack 2
           <Sprites>k__BackingField:
-          - {fileID: 1638052048, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: 2103199215, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: -297014774, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: -343550002, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: 2105251077, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
+          - {fileID: 1833798126, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: -1976007046, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: -88256135, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: -1298014083, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: 2140063879, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
         - name: Attack 3
           <Sprites>k__BackingField:
-          - {fileID: 1356389678, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: 1255272644, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: 1065601525, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: 203493574, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
-          - {fileID: 1879950651, guid: 800cc178c52b8224d95a800e6503bc1d, type: 3}
+          - {fileID: 1306374476, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: 415512404, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: -1060983808, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: 1680487867, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
+          - {fileID: 608157998, guid: 9f438fd52541dc643b98081b3d012364, type: 3}
     - rid: 8757109922973351936
       type: {class: ActionHitBoxData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:
@@ -104,3 +105,17 @@ MonoBehaviour:
           <Amount>k__BackingField: 10
         - name: Attack 3
           <Amount>k__BackingField: 10
+    - rid: 8757109985612398597
+      type: {class: KnockbackData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        name: KnockbackData
+        attackData:
+        - name: Attack 1
+          <Angle>k__BackingField: {x: 1, y: 1}
+          <Strength>k__BackingField: 3
+        - name: Attack 2
+          <Angle>k__BackingField: {x: 1, y: 1}
+          <Strength>k__BackingField: 3
+        - name: Attack 3
+          <Angle>k__BackingField: {x: 1, y: 2}
+          <Strength>k__BackingField: 4

@@ -6,7 +6,7 @@ namespace _Scripts.Weapons.Components
 {
     public class DamageData : ComponentData<AttackDamage>
     {
-        public DamageData()
+        protected override void SetComponentDependecy()
         {
             ComponentDependency = typeof(Damage);
         }

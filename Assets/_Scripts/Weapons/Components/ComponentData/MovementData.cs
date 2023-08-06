@@ -6,7 +6,7 @@ namespace _Scripts.Weapons.Components
 {
     public class MovementData : ComponentData<AttackMovement>
     {
-        public MovementData()
+        protected override void SetComponentDependecy()
         {
             ComponentDependency = typeof(Movement);
         }
