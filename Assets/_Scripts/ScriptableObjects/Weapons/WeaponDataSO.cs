@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using _Scripts.Weapons.Components;
 using UnityEngine;
+using System;
 
 namespace _Scripts.Weapons
 {
@@ -16,6 +17,11 @@ namespace _Scripts.Weapons
         public T GetData<T>()
         {
             return ComponentData.OfType<T>().FirstOrDefault();
+        }
+
+        public List<Type> GetAllDependecies()
+        {
+            return ComponentData.Select(component => component.ComponentDependency).ToList();
         }
 
         public void AddData(ComponentData data)

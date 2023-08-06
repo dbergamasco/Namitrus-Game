@@ -15,6 +15,11 @@ namespace _Scripts.Weapons.Components
 
         protected bool isAttackActive;
 
+        public virtual void Init()
+        {
+
+        }
+
         protected virtual void Awake()
         {
             weapon = GetComponentInParent<Weapon>();
@@ -26,13 +31,8 @@ namespace _Scripts.Weapons.Components
 
         protected virtual void HandleExit() => isAttackActive = false;
 
-        protected virtual void OnEnable()
-        {
-            weapon.OnEnter += HandleEnter;
-            weapon.OnExit += HandleExit;
-        }
 
-        protected virtual void OnDisable()
+        protected virtual void OnDestroy()
         {
             weapon.OnEnter -= HandleEnter;
             weapon.OnExit -= HandleExit;
@@ -44,16 +44,17 @@ namespace _Scripts.Weapons.Components
         protected T1 data;
         protected T2 currentAttackData;
 
-        protected override void Awake()
+        public override void Init()
         {
-            base.Awake();
+            base.Init();
 
             data = weapon.Data.GetData<T1>();
         }
 
         protected virtual void Start()
         {
-            
+            weapon.OnEnter += HandleEnter;
+            weapon.OnExit += HandleExit;
         }
 
         protected override void HandleEnter()

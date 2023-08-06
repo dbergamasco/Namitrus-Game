@@ -10,6 +10,8 @@ namespace _Scripts.Weapons.Components
     {
         [SerializeField, HideInInspector] private string name;
 
+        public Type ComponentDependency { get; protected set; }
+
         public ComponentData()
         {
             SetComponentName();
