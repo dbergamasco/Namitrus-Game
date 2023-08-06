@@ -10,8 +10,8 @@ namespace _Scripts.CoreSystem
         private bool isKnockbackActive;
         private float knockbackStartTime;
 
-        private CoreComp<Movement> movement;
-        private CoreComp<CollisionSenses> collisionSenses;
+        private Movement movement;
+        private CollisionSenses collisionSenses;
 
 
         public override void LogicUpdate()
@@ -22,18 +22,18 @@ namespace _Scripts.CoreSystem
 
         public void Knockback(Vector2 angle, float strength, int direction)
         {
-            movement.Comp?.SetVelocity(strength, angle, direction);
-            movement.Comp.CanSetVelocity = false;
+            movement.SetVelocity(strength, angle, direction);
+            movement.CanSetVelocity = false;
             isKnockbackActive = true;
             knockbackStartTime = Time.time;
         }
 
         private void CheckKnockback()
         {
-            if (isKnockbackActive && (movement.Comp.CurrentVelocity.y <= 0.01f && collisionSenses.Comp.Ground || Time.time >= knockbackStartTime + maxKnockbackTime))
+            if (isKnockbackActive && (movement.CurrentVelocity.y <= 0.01f && collisionSenses.Ground || Time.time >= knockbackStartTime + maxKnockbackTime))
             {
                 isKnockbackActive = false;
-                movement.Comp.CanSetVelocity = true;
+                movement.CanSetVelocity = true;
             }
         }
 
@@ -41,8 +41,8 @@ namespace _Scripts.CoreSystem
         {
             base.Awake();
 
-            movement = new CoreComp<Movement>(core);
-            collisionSenses = new CoreComp<CollisionSenses>(core);
+            movement = core.GetCoreComponent<Movement>();
+            collisionSenses = core.GetCoreComponent<CollisionSenses>();
         }
     }
 }

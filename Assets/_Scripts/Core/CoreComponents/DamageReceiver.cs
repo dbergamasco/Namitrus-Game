@@ -7,16 +7,16 @@ namespace _Scripts.CoreSystem
     {
         [SerializeField] private GameObject damageParticles;
 
-        private CoreComp<Stats> stats;
-        private CoreComp<ParticleManager> particleManager;
+        private Stats stats;
+        private ParticleManager particleManager;
 
         public void Damage(float amount)
         {
             float finalDamage = CalcRangeDamage(amount);
-            stats.Comp?.DecreaseHealth(finalDamage);
+            stats?.DecreaseHealth(finalDamage);
             Debug.Log($"Final damage: {finalDamage}");
 
-            particleManager.Comp?.StartParticlesWithRandomRotation(damageParticles);
+            particleManager?.StartParticlesWithRandomRotation(damageParticles);
         }
 
         public float CalcRangeDamage(float damage)
@@ -34,8 +34,8 @@ namespace _Scripts.CoreSystem
         {
             base.Awake();
 
-            stats = new CoreComp<Stats>(core);
-            particleManager = new CoreComp<ParticleManager>(core);
+            stats = core.GetCoreComponent<Stats>();
+            particleManager = core.GetCoreComponent<ParticleManager>();
         }
 
     }
