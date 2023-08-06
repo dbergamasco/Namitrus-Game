@@ -994,7 +994,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76976f351f87d1841a8c16fa0c92d178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  <Health>k__BackingField:
+    <MaxValue>k__BackingField: 100
+  <Poise>k__BackingField:
+    <MaxValue>k__BackingField: 50
+  poiseRecoveryRate: 25
 --- !u!1 &8508453961380207674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,6 +1011,7 @@ GameObject:
   - component: {fileID: 2108147241236904351}
   - component: {fileID: 8527162206892000499}
   - component: {fileID: 456988244525505301}
+  - component: {fileID: 7822269087597370817}
   m_Layer: 6
   m_Name: Combat
   m_TagString: Untagged
@@ -1100,6 +1105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxKnockbackTime: 0.2
+--- !u!114 &7822269087597370817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508453961380207674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26b0306be085b24bae5b3450db061c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8585343128426930436
 GameObject:
   m_ObjectHideFlags: 0

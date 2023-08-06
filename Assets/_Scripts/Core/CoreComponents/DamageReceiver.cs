@@ -13,7 +13,7 @@ namespace _Scripts.CoreSystem
         public void Damage(float amount)
         {
             float finalDamage = CalcRangeDamage(amount);
-            stats?.DecreaseHealth(finalDamage);
+            stats.Health.Decrease(finalDamage);
             Debug.Log($"Final damage: {finalDamage}");
 
             particleManager?.StartParticlesWithRandomRotation(damageParticles);

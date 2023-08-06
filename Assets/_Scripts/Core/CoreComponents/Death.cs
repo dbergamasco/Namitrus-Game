@@ -26,12 +26,12 @@ namespace _Scripts.CoreSystem
 
         private void OnEnable()
         {
-            Stats.OnHealthZero += Die;
+            Stats.Health.OnCurrentValueZero += Die;
         }
 
         private void OnDisable()
         {
-            Stats.OnHealthZero -= Die;
+            Stats.Health.OnCurrentValueZero -= Die;
         }
     }
 }
