@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sword_Attack_3
+  m_Name: bow_action
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,21 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 2143207395, guid: c8e96c156a9d2ef47ac929065bf98834, type: 3}
-    - time: 0.26666668
-      value: {fileID: 176393352, guid: c8e96c156a9d2ef47ac929065bf98834, type: 3}
+      value: {fileID: -954937412, guid: 5b28942d7cf8af641bcffc1e23bb3368, type: 3}
+    - time: 0.25
+      value: {fileID: -1777963315, guid: 5b28942d7cf8af641bcffc1e23bb3368, type: 3}
     - time: 0.33333334
-      value: {fileID: -1311362714, guid: c8e96c156a9d2ef47ac929065bf98834, type: 3}
-    - time: 0.53333336
-      value: {fileID: 37715437, guid: c8e96c156a9d2ef47ac929065bf98834, type: 3}
-    - time: 0.6
-      value: {fileID: 177335039, guid: c8e96c156a9d2ef47ac929065bf98834, type: 3}
+      value: {fileID: 1594359962, guid: 5b28942d7cf8af641bcffc1e23bb3368, type: 3}
+    - time: 0.41666666
+      value: {fileID: -1699031665, guid: 5b28942d7cf8af641bcffc1e23bb3368, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 15
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -52,22 +50,21 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 2143207395, guid: c8e96c156a9d2ef47ac929065bf98834, type: 3}
-    - {fileID: 176393352, guid: c8e96c156a9d2ef47ac929065bf98834, type: 3}
-    - {fileID: -1311362714, guid: c8e96c156a9d2ef47ac929065bf98834, type: 3}
-    - {fileID: 37715437, guid: c8e96c156a9d2ef47ac929065bf98834, type: 3}
-    - {fileID: 177335039, guid: c8e96c156a9d2ef47ac929065bf98834, type: 3}
+    - {fileID: -954937412, guid: 5b28942d7cf8af641bcffc1e23bb3368, type: 3}
+    - {fileID: -1777963315, guid: 5b28942d7cf8af641bcffc1e23bb3368, type: 3}
+    - {fileID: 1594359962, guid: 5b28942d7cf8af641bcffc1e23bb3368, type: 3}
+    - {fileID: -1699031665, guid: 5b28942d7cf8af641bcffc1e23bb3368, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666667
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -83,41 +80,13 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: StopMovementTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
     functionName: EnterAttackPhase
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 0.26666668
-    functionName: StartMovementTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.26666668
-    functionName: AttackActionTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.53333336
-    functionName: StopMovementTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6666667
+  - time: 0.5
     functionName: AnimationFinishTrigger
     data: 
     objectReferenceParameter: {fileID: 0}

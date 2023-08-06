@@ -24,7 +24,12 @@ namespace _Scripts.Weapons.Components
         {
             weapon = GetComponentInParent<Weapon>();
 
-            eventHandler = GetComponentInChildren<AnimationEventHandler>();
+            eventHandler = transform.parent.GetComponentInChildren<AnimationEventHandler>();
+
+            if(eventHandler == null)
+            {
+                Debug.LogError("eventHandler is null");
+            }
         }
 
         protected virtual void HandleEnter() => isAttackActive = true;
