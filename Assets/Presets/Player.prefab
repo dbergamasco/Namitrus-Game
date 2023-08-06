@@ -801,7 +801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557044473847423407}
   - component: {fileID: 5736661512669728899}
-  - component: {fileID: 8767880236394286268}
+  - component: {fileID: 3040399380757367523}
   m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
@@ -839,7 +839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCounterResetCooldown: 3
---- !u!114 &8767880236394286268
+--- !u!114 &3040399380757367523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
