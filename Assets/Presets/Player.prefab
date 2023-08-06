@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640033172212028081}
   - component: {fileID: 287930596123049926}
-  - component: {fileID: 2275052663874496080}
+  - component: {fileID: 516651241478122173}
   m_Layer: 6
   m_Name: WeaponSprite
   m_TagString: Untagged
@@ -247,7 +247,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2275052663874496080
+--- !u!114 &516651241478122173
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
