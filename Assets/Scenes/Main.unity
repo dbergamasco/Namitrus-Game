@@ -33167,7 +33167,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2089705972}
         m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
-        m_MethodName: OnPrimaryAttackInput
+        m_MethodName: OnAttackInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

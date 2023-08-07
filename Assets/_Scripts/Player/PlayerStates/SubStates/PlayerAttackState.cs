@@ -1,3 +1,4 @@
+using UnityEngine;
 using _Scripts.Weapons;
 
 public class PlayerAttackState : PlayerAbilityState
@@ -15,6 +16,13 @@ public class PlayerAttackState : PlayerAbilityState
         this.weapon = weapon;
 
         weapon.OnExit += ExitHandler;
+    }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+
+        weapon.CurrentInput = player.InputHandler.AttackInputs;
     }
 
     public override void Enter()
