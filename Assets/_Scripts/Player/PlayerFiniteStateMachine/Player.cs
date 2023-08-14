@@ -1,6 +1,7 @@
 using _Scripts.Weapons;
-using _Scripts.CoreSystem;
 using UnityEngine;
+using _Scripts;
+using _Scripts.CoreSystem;
 
 public class Player : MonoBehaviour 
 {
@@ -17,12 +18,12 @@ public class Player : MonoBehaviour
     public PlayerJumpState JumpState { get; private set; }
     public PlayerInAirState InAirState { get; private set; }
     public PlayerLandState LandState { get; private set; }
-    public PlayerWallSlideState WallSlideState { get; private set; }
-    public PlayerWallGrabState WallGrabState { get; private set; }
-    public PlayerWallClimbState WallClimbState { get; private set; }
-    public PlayerWallJumpState WallJumpState { get; private set; }
-    public PlayerLedgeClimbState LedgeClimbState { get; private set; }
-    public PlayerDashState DashState { get; private set; }
+    //public PlayerWallSlideState WallSlideState { get; private set; }
+    //public PlayerWallGrabState WallGrabState { get; private set; }
+    //public PlayerWallClimbState WallClimbState { get; private set; }
+    //public PlayerWallJumpState WallJumpState { get; private set; }
+    //public PlayerLedgeClimbState LedgeClimbState { get; private set; }
+    //public PlayerDashState DashState { get; private set; }
 
     // ATTACK STATES
     public PlayerAttackState PrimaryAttackState { get; private set; }
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public Transform DashDirectionIndicator { get; private set; }
+    public HealthBar healthBar;
 
     #endregion
 
@@ -53,7 +55,7 @@ public class Player : MonoBehaviour
 
         weapon = transform.Find("Weapon").GetComponent<Weapon>();
 
-        weapon.SetCore(Core);
+        //weapon.SetCore(CoreSystem);
         
         StateMachine = new PlayerStateMachine();
 
@@ -62,13 +64,16 @@ public class Player : MonoBehaviour
         JumpState = new PlayerJumpState(this, StateMachine, playerData, "inAir");
         InAirState = new PlayerInAirState(this, StateMachine, playerData, "inAir");
         LandState = new PlayerLandState(this, StateMachine, playerData, "land");
-        WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
-        WallGrabState = new PlayerWallGrabState(this, StateMachine, playerData, "wallGrab");
-        WallClimbState = new PlayerWallClimbState(this, StateMachine, playerData, "wallClimb");
-        WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
-        LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
-        DashState = new PlayerDashState(this, StateMachine, playerData, "inAir");
+        //WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
+        //WallGrabState = new PlayerWallGrabState(this, StateMachine, playerData, "wallGrab");
+        //WallClimbState = new PlayerWallClimbState(this, StateMachine, playerData, "wallClimb");
+        //WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
+        //LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
+        //DashState = new PlayerDashState(this, StateMachine, playerData, "inAir");
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon);
+
+        //healthBar.SetMaxHealth(Core.GetCoreComponent<Stats>().Health.CurrentValue);
+        
 
     }
 
@@ -76,14 +81,19 @@ public class Player : MonoBehaviour
         Anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
-        DashDirectionIndicator = transform.Find("DashDirectionIndicator");
+        //DashDirectionIndicator = transform.Find("DashDirectionIndicator");
 
         StateMachine.Initialize(IdleState);
     }
 
-    private void Update() {
+    private void Update()
+    {
         Core.LogicUpdate();
+        
+        //healthBar.SetHealth(CoreSystem.GetCoreComponent<Stats>().Health.CurrentValue);
+
         StateMachine.CurrentState.LogicUpdate();
+        
     }
 
     private void FixedUpdate() 

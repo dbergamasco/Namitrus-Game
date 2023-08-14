@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba295cdd4c1b3f40be56d36b0a81883, type: 3}
+  m_Name: PlayerCore
+  m_EditorClassIdentifier: 
+  <CoreComponentData>k__BackingField:
+  - rid: 8757110131351879684
+  - rid: 8757110131351879685
+  - rid: 8757110131351879686
+  references:
+    version: 2
+    RefIds:
+    - rid: 8757110131351879684
+      type: {class: CollisionSensesData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: CollisionSensesData
+        Debug: 1
+        whatIsGround:
+          serializedVersion: 2
+          m_Bits: 128
+    - rid: 8757110131351879685
+      type: {class: LedgeCheckHorizontalData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: LedgeCheckHorizontalData
+        Debug: 1
+        ledgeCheckHorizontalDistance: 0
+        whatIsGround:
+          serializedVersion: 2
+          m_Bits: 128
+    - rid: 8757110131351879686
+      type: {class: MovementData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: MovementData
+        moveSpeed: 0
+        jumpForce: 0

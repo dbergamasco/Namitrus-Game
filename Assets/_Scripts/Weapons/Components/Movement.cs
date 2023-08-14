@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.CoreSystem;
 using UnityEngine;
 
 namespace _Scripts.Weapons.Components
 {
+    [Serializable]
     public class Movement : WeaponComponent<MovementData, AttackMovement>
     {
-        private CoreSystem.Movement coreMovement;
-        private CoreSystem.Movement CoreMovement => coreMovement ? coreMovement : Core.GetCoreComponent(ref coreMovement);
+        
+        private Movements CoreMovement { get => coreMovement ??= Core?.GetCoreComponent<Movements>(); }
+        private Movements coreMovement;
 
         private void HandleStartMovement()
         {

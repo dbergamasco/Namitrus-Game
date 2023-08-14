@@ -63,11 +63,6 @@ namespace _Scripts.Weapons
             OnEnter?.Invoke();
         }
 
-        public void SetCore(Core core)
-        {
-            Core = core;
-        }
-
         public void SetData(WeaponDataSO data)
         {
             Data = data;
@@ -93,6 +88,12 @@ namespace _Scripts.Weapons
             EventHandler = BaseGameObject.GetComponent<AnimationEventHandler>();
 
             attackCounterResetTimer = new Timer(attackCounterResetCooldown);
+        }
+
+        private void Start()
+        {
+            GameObject coreTransform = GameObject.Find("Core");
+            Core = coreTransform.GetComponent<Core>();
         }
 
         private void Update()

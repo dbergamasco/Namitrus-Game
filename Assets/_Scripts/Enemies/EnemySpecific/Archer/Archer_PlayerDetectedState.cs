@@ -32,9 +32,9 @@ public class Archer_PlayerDetectedState : PlayerDetectedState
 
         if(performCloseRangeAction)
         {
-            if(Time.time >= archer.dodgeState.startTime + archer.dodgeStateData.dodgeCooldown)
+            if(Time.time >= archer.rollingState.startTime + archer.rollingStateData.rollingCooldown)
             {
-                stateMachine.ChangeState(archer.dodgeState);
+                stateMachine.ChangeState(archer.rollingState);
             }
             else
             {

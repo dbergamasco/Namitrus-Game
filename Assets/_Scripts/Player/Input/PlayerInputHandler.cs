@@ -124,6 +124,7 @@ public class PlayerInputHandler : MonoBehaviour
     private void CheckJumpInputHoldTime()
     {
         if(Time.time >= jumpInputStartTime + inputHoldTime){
+            
             JumpInput = false;
         }
     }

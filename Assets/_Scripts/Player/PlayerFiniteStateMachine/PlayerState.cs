@@ -24,6 +24,7 @@ public class PlayerState
         this.stateMachine = stateMachine;
         this.playerData = playerData;
         this.animBoolName = animBoolName;
+  
         core = player.Core;
     }
 
@@ -45,21 +46,13 @@ public class PlayerState
         isExitingState = true;
     }
 
-    public virtual void LogicUpdate(){
-
-    }
+    public virtual void LogicUpdate(){}
 
     public virtual void PhysicsUpdate(){
         DoCheck();
     }
 
-    public virtual void DoCheck(){
-
-    }
-
-    public virtual void AnimationTrigger(){
-
-    }
-
+    public virtual void DoCheck(){}
+    public virtual void AnimationTrigger(){}
     public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
 }

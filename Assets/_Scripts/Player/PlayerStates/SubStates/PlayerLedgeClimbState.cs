@@ -4,11 +4,14 @@ using UnityEngine;
 public class PlayerLedgeClimbState : PlayerState
 {
 
-    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
-    private Movement movement;
+    protected Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
+    private Movements movement;
 
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
+
+    private LedgeCheckHorizontal LedgeCheckHorizontal { get => ledgeCheckHorizontal ??= core.GetCoreComponent<LedgeCheckHorizontal>(); }
+    private LedgeCheckHorizontal ledgeCheckHorizontal;
 
     private Vector2 detectedPos;
     private Vector2 cornerPos;
@@ -45,12 +48,22 @@ public class PlayerLedgeClimbState : PlayerState
     {
         base.Enter();
 
-        Movement?.SetVelocityZero();
         player.transform.position = detectedPos;
-        cornerPos = DetermineCornerPosition();
+        Debug.Log("Player pos after setting = "+ player.transform.position);
+        Debug.Log("player ledge offset position: "+ LedgeCheckHorizontal.ledgeCheckPosition);
 
-        startPos.Set(cornerPos.x - (Movement.FacingDirection * playerData.startOffset.x), cornerPos.y - playerData.startOffset.y);
-        stopPos.Set(cornerPos.x + (Movement.FacingDirection * playerData.stopOffset.x), cornerPos.y + playerData.startOffset.y);
+        Movement?.SetVelocityZero();
+        
+        cornerPos = LedgeCheckHorizontal.ledgeCheckPosition;
+
+        startPos = detectedPos;
+        Vector2 diagonalDirection = new Vector2(Movement.FacingDirection, 1);
+        float distance = 0.7f;
+
+        Vector2 normalizedDirection = diagonalDirection.normalized;
+        stopPos = startPos + normalizedDirection * distance;
+
+        
 
         player.transform.position = startPos;
     }
@@ -94,27 +107,9 @@ public class PlayerLedgeClimbState : PlayerState
             {
                 stateMachine.ChangeState(player.InAirState);
             }
-            else if(jumpInput && !isClimbing)
-            {
-                player.WallJumpState.DetermineWallJumpDirection(true);
-                stateMachine.ChangeState(player.WallJumpState);
-            }
         }
-
     }
 
     public void SetDetectedPosition(Vector2 pos) => detectedPos = pos;
-
-    private Vector2 DetermineCornerPosition()
-    {
-        RaycastHit2D xHit = Physics2D.Raycast(CollisionSenses.WallCheck.position, Vector2.right * Movement.FacingDirection, CollisionSenses.WallCheckDistance, CollisionSenses.WhatIsGround);
-        float xDist = xHit.distance;
-        workspace.Set(xDist * Movement.FacingDirection, 0f);
-        RaycastHit2D yHit = Physics2D.Raycast(CollisionSenses.LedgeCheckHorizontal.position + (Vector3)(workspace), Vector2.down, CollisionSenses.LedgeCheckHorizontal.position.y - CollisionSenses.WallCheck.position.y, CollisionSenses.WhatIsGround);
-        float yDist = yHit.distance;
-
-        workspace.Set(CollisionSenses.WallCheck.position.x + (xDist * Movement.FacingDirection), CollisionSenses.LedgeCheckHorizontal.position.y - yDist);
-        return workspace;
-    }
 
 }

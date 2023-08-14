@@ -4,8 +4,8 @@ using UnityEngine;
 public class AttackState : State
 {
 
-    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
-    private Movement movement;
+    private Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
+    private Movements movement;
 
     protected Transform attackPosition;
 

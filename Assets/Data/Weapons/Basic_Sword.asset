@@ -80,10 +80,10 @@ MonoBehaviour:
           Debug: 0
           <HitBox>k__BackingField:
             serializedVersion: 2
-            x: 0
-            y: 0
-            width: 0
-            height: 0
+            x: 0.01
+            y: -0.5
+            width: 1.55
+            height: 2
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 512

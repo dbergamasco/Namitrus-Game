@@ -1,15 +1,19 @@
 using _Scripts.CoreSystem;
+using UnityEngine;
 
 public class PlayerGroundedState : PlayerState
 {
 
     protected int xInput;
 
-    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
-    private Movement movement;
+    protected Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
+    private Movements movement;
 
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
+
+    private LedgeCheckHorizontal LedgeCheckHorizontal { get => ledgeCheckHorizontal ??= core.GetCoreComponent<LedgeCheckHorizontal>(); }
+    private LedgeCheckHorizontal ledgeCheckHorizontal;
 
     private bool JumpInput;
     private bool grabInput;
@@ -29,9 +33,9 @@ public class PlayerGroundedState : PlayerState
 
         if(CollisionSenses)
         {
-            isGrounded = CollisionSenses.Ground;
-            isTouchingWall = CollisionSenses.WallFront;
-            isTouchingLedge = CollisionSenses.LedgeHorizontal;
+            isGrounded = CollisionSenses.isGrounded;
+            isTouchingWall = CollisionSenses.isTouchingWallFront;
+            isTouchingLedge = LedgeCheckHorizontal.isTouchingHorizontalLedge;
         }
         
     }
@@ -41,7 +45,6 @@ public class PlayerGroundedState : PlayerState
         base.Enter();
 
         player.JumpState.ResetAmountOfJumps();
-        player.DashState.ResetCanDash();
     }
 
     public override void Exit()
@@ -65,18 +68,12 @@ public class PlayerGroundedState : PlayerState
         else if(JumpInput && player.JumpState.CanJump())
         {
             stateMachine.ChangeState(player.JumpState);
-        } else if(!isGrounded)
+        } 
+        else if(!isGrounded)
         {
             player.InAirState.StartCoyoteTime();
             stateMachine.ChangeState(player.InAirState);
-        } else if(isTouchingWall && grabInput && isTouchingLedge)
-        {
-            stateMachine.ChangeState(player.WallGrabState);
-        }
-        else if(dashInput && player.DashState.CheckIfCanDash())
-        {
-            stateMachine.ChangeState(player.DashState);
-        }
+        } 
     }
 
     public override void PhysicsUpdate()

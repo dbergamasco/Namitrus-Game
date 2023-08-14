@@ -9,7 +9,7 @@ namespace _Scripts.Weapons.Components
     {
         private ActionHitBox hitBox;
 
-        private CoreSystem.Movement movement;
+        private CoreSystem.Movements movement;
 
         private void HandleDetectCollider2D(Collider2D[] colliders)
         {
@@ -27,7 +27,7 @@ namespace _Scripts.Weapons.Components
             base.Start();
 
             hitBox = GetComponent<ActionHitBox>();
-            movement = Core.GetCoreComponent<CoreSystem.Movement>();
+            //movement = Core.GetCoreComponent<CoreSystem.Movement>();
 
             hitBox.OnDetectedCollider2D += HandleDetectCollider2D;
         }

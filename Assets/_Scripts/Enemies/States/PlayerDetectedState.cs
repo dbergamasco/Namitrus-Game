@@ -4,11 +4,14 @@ using UnityEngine;
 public class PlayerDetectedState : State
 {
 
-    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
-    private Movement movement;
+    protected Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
+    private Movements movement;
 
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
+
+    private LedgeCheckVertical LedgeCheckVertical { get => ledgeCheckVertical ??= core.GetCoreComponent<LedgeCheckVertical>(); }
+    private LedgeCheckVertical ledgeCheckVertical;
 
     protected D_PlayerDetectedState stateData;
 
@@ -32,7 +35,7 @@ public class PlayerDetectedState : State
 
         if(CollisionSenses)
         {
-            isDetectingLedge = CollisionSenses.LedgeVertical;
+            isDetectingLedge = LedgeCheckVertical.isTouchingVerticalLedge;
         }
         
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();

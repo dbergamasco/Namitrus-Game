@@ -4,8 +4,8 @@ using UnityEngine;
 public class DodgeState : State
 {
 
-    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
-    private Movement movement;
+    private Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
+    private Movements movement;
 
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
@@ -31,7 +31,7 @@ public class DodgeState : State
 
         if(CollisionSenses)
         {
-            isGrounded = CollisionSenses.Ground;
+            isGrounded = CollisionSenses.isGrounded;
         }
         
     }

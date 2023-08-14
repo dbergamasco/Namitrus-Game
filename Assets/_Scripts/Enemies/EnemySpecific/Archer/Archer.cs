@@ -12,6 +12,8 @@ public class Archer : Entity
     public Archer_StunState stunState { get; private set; }
     public Archer_DeadState deadState { get; private set; }
     public Archer_DodgeState dodgeState { get; private set; }
+    public Archer_RollingState rollingState { get; private set; }
+    
     public Archer_RangedAttackState rangedAttackState { get; private set; }
 
     [SerializeField]
@@ -30,6 +32,8 @@ public class Archer : Entity
     private D_DeadState deadStateData;
     [SerializeField]
     public D_DodgeState dodgeStateData;
+    [SerializeField]
+    public D_RollingState rollingStateData;
     [SerializeField]
     public D_RangedAttackState rangedAttackStateData;
 
@@ -52,9 +56,10 @@ public class Archer : Entity
         stunState = new Archer_StunState(this, stateMachine, "stun", stunStateData, this);
         deadState = new Archer_DeadState(this, stateMachine, "dead", deadStateData, this);
         dodgeState = new Archer_DodgeState(this, stateMachine, "dodge", dodgeStateData, this);
+        rollingState = new Archer_RollingState(this, stateMachine, "rolling", rollingStateData, this);  
+        
         rangedAttackState = new Archer_RangedAttackState(this, stateMachine, "rangedAttack", rangedAttackPosition, rangedAttackStateData, this);
         
-        stats.Poise.OnCurrentValueZero += HandlePoiseZero;
     }
 
     private void HandlePoiseZero()
@@ -64,11 +69,13 @@ public class Archer : Entity
     private void Start() 
     {
         stateMachine.Initialize(moveState);
+
+        
     }
 
     private void OnDestroy()
     {
-        stats.Poise.OnCurrentValueZero -= HandlePoiseZero;
+        
     }
 
     public override void OnDrawGizmos()

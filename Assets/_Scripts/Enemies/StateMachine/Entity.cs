@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    private Movement Movement { get => movement ??= Core.GetCoreComponent<Movement>(); }
-    private Movement movement;
+    private Movements Movement { get => movement ??= Core.GetCoreComponent<Movements>(); }
+    private Movements movement;
 
     public Core Core { get; private set; }
 
@@ -17,15 +17,6 @@ public class Entity : MonoBehaviour
 
     public int lastDamageDirection { get; private set; }
 
-    [SerializeField]
-    private Transform wallCheck;
-    [SerializeField]
-    private Transform ledgeCheck;
-    [SerializeField]
-    private Transform playerCheck;
-    [SerializeField]
-    private Transform groundCheck;
-
     private float currentHealth;
     private float currentStunResistance;
     private float lastDamageTime;
@@ -37,13 +28,9 @@ public class Entity : MonoBehaviour
     protected bool isStunned;
     protected bool isDead;
 
-    protected Stats stats;
-
     public virtual void Awake()
     {
         Core = GetComponentInChildren<Core>();
-
-        stats = Core.GetCoreComponent<Stats>();
 
         currentHealth = entityData.maxHealth;
         currentStunResistance = entityData.stunResistance;

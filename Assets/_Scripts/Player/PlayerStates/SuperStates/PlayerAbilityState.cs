@@ -5,8 +5,8 @@ public class PlayerAbilityState : PlayerState
     protected bool isAbilityDone;
     private bool isGrounded;
 
-    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
-    private Movement movement;
+    protected Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
+    private Movements movement;
 
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
@@ -21,7 +21,7 @@ public class PlayerAbilityState : PlayerState
 
         if(CollisionSenses)
         {
-            isGrounded = CollisionSenses.Ground;
+            isGrounded = CollisionSenses.isGrounded;
         }
         
     }

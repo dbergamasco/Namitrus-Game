@@ -4,11 +4,14 @@ using UnityEngine;
 public class ChargeState : State
 {
 
-    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
-    private Movement movement;
+    private Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
+    private Movements movement;
 
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
+
+    private LedgeCheckVertical LedgeCheckVertical { get => ledgeCheckVertical ??= core.GetCoreComponent<LedgeCheckVertical>(); }
+    private LedgeCheckVertical ledgeCheckVertical;
 
     protected D_ChargeState stateData;
 
@@ -31,8 +34,8 @@ public class ChargeState : State
         
         if(CollisionSenses)
         {
-            isDetectingLedge = CollisionSenses.LedgeVertical;
-            isDetectingWall = CollisionSenses.WallFront;
+            isDetectingLedge = LedgeCheckVertical.isTouchingVerticalLedge;
+            isDetectingWall = CollisionSenses.isTouchingWallFront;
         }  
         
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();

@@ -3,11 +3,14 @@ using _Scripts.CoreSystem;
 public class MoveState : State
 {
 
-    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
-    private Movement movement;
+    private Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
+    private Movements movement;
 
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
+
+    private LedgeCheckVertical LedgeCheckVertical { get => ledgeCheckVertical ??= core.GetCoreComponent<LedgeCheckVertical>(); }
+    private LedgeCheckVertical ledgeCheckVertical;
 
     protected D_MoveState stateData;
 
@@ -26,8 +29,8 @@ public class MoveState : State
 
         if(CollisionSenses)
         {
-        isDetectingLedge = CollisionSenses.LedgeVertical;
-        isDetectingWall = CollisionSenses.WallFront;
+        isDetectingLedge = LedgeCheckVertical.isTouchingVerticalLedge;
+        isDetectingWall = CollisionSenses.isTouchingWallFront;
         }
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
     }

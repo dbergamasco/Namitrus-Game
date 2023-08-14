@@ -26,6 +26,8 @@ namespace _Scripts.Weapons.Components
 
             eventHandler = transform.parent.GetComponentInChildren<AnimationEventHandler>();
 
+            
+
             if(eventHandler == null)
             {
                 Debug.LogError("eventHandler is null");

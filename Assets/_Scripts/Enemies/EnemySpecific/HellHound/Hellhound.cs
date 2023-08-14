@@ -46,7 +46,6 @@ public class Hellhound : Entity
         stunState = new Hellhound_StunState(this, stateMachine, "stun", stunStateData, this);
         deadState = new Hellhound_DeadState(this, stateMachine, "dead", deadStateData, this);
 
-        stats.Poise.OnCurrentValueZero += HandlePoiseZero;
     }
 
     private void HandlePoiseZero()
@@ -61,7 +60,7 @@ public class Hellhound : Entity
 
     private void OnDestroy()
     {
-        stats.Poise.OnCurrentValueZero -= HandlePoiseZero;
+        
     }
 
     public override void OnDrawGizmos()
