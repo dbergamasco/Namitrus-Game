@@ -27,11 +27,11 @@ namespace _Scripts.CoreSystem
         public void Damage(float damage)
         {
             float finalDamage = CalcRangeDamage(damage);
-            healthSystem.Decrease(finalDamage);
+            HealthSystem.Decrease(finalDamage);
             
-            Debug.Log($"Final damage: {finalDamage}, CurrentHealth: {healthSystem.CurrentHealth}");
+            Debug.Log($"Final damage: {finalDamage}, CurrentHealth: {HealthSystem.CurrentHealth}");
     
-            particleManager?.StartParticlesWithRandomRotation(data.damageParticles);
+            ParticleManager?.StartParticlesWithRandomRotation(data.damageParticles);
         }
     }
 }

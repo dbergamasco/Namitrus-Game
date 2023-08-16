@@ -13,7 +13,8 @@ namespace _Scripts.Weapons.Components
         {
             foreach(var item in colliders)
             {
-                if(item.TryGetComponent(out IDamageable damageable))
+                IDamageable damageable = item.GetComponentInChildren<IDamageable>();
+                if(damageable != null)
                 {
                     damageable.Damage(currentAttackData.Amount);
                 }

@@ -11,52 +11,56 @@ namespace _Scripts.CoreSystem
 
         private BoxCollider2D boxCollider;
 
-        public bool isTouchingVerticalLedge;
+        private Vector2 center;
+        private Vector3 rangePosition;
 
         protected override void Awake()
         {
             base.Awake();
 
+            center = transform.position;
         }
 
-        protected override void Start()
-        {
-            base.Start();
-
-            boxCollider = GetComponentInParent<BoxCollider2D>();   
-        }
 
         protected override void Update()
         {
             base.Update();
 
-            isTouchingVerticalLedge = TouchingLedgeVerticalDetection();
+            center = transform.position;
+
+            rangePosition = CalculateCubePosition(center, data.rangePosition);
         }
 
-        private bool TouchingLedgeVerticalDetection()
+        public bool isDetectingLedge()
         {
-            Vector3 checkPosition =new Vector3(
-            boxCollider.bounds.center.x + (boxCollider.bounds.extents.x * Movement.FacingDirection) + (data.ledgeCheckVerticalDistance * Movement.FacingDirection),
-            boxCollider.bounds.center.y - boxCollider.bounds.extents.y,
-            boxCollider.bounds.center.z
-            );
-
-            return Physics2D.OverlapCircle(checkPosition, 0.1f, data.whatIsGround);
+            return Physics2D.Raycast(rangePosition, Vector2.down, data.distance, data.detectionLayer);
         }
 
+
+        private Vector3 CalculateCubePosition(Vector2 center, Vector2 rangePosition)
+        {
+            return new Vector3(center.x + rangePosition.x * Movement.FacingDirection, center.y - rangePosition.y, 0);
+        }
+
+
+        #region Gizmos
         private void OnDrawGizmos()
         {
-            Vector3 checkPosition = new Vector3(
-            boxCollider.bounds.center.x + (boxCollider.bounds.extents.x * Movement.FacingDirection) + (data.ledgeCheckVerticalDistance * Movement.FacingDirection),
-            boxCollider.bounds.center.y - boxCollider.bounds.extents.y,
-            boxCollider.bounds.center.z
-            );
-
             if(data.Debug)
             {
+                Vector3 cubePosition = new Vector3(center.x + data.rangePosition.x * Movement.FacingDirection, center.y - data.rangePosition.y, 0);
+                Vector3 cubeSize = new Vector3(data.rangeRadius.x * 2, data.rangeRadius.y * 2, 0);
+
                 Gizmos.color = Color.blue;
-                Gizmos.DrawSphere(checkPosition, 0.1f);
+                Gizmos.DrawWireCube(cubePosition, cubeSize);
+
+                Vector3 lineStart = cubePosition - new Vector3(0, data.rangeRadius.y, 0);
+                Vector3 lineEnd = lineStart - new Vector3(0, data.distance, 0);
+
+                Gizmos.color = Color.red;
+                Gizmos.DrawLine(lineStart, lineEnd);
             }
         }
+        #endregion
     }
 }

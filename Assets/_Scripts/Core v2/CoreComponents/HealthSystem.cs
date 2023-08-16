@@ -23,7 +23,7 @@ namespace _Scripts.CoreSystem
 
                 if (currentHeath <= 0f)
                 {
-                OnCurrentValueZero?.Invoke();
+                    OnCurrentValueZero?.Invoke();
                 }
             }
         }

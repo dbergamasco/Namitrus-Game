@@ -24,15 +24,15 @@ namespace _Scripts.CoreSystem
 
         public void Knockback(Vector2 angle, float strength, int direction)
         {
-            movement.SetVelocity(strength, angle, direction);
-            movement.CanSetVelocity = false;
+            Movement.SetVelocity(strength, angle, direction);
+            Movement.CanSetVelocity = false;
             isKnockbackActive = true;
             knockbackStartTime = Time.time;
         }
 
         private void CheckKnockback()
         {
-            if (isKnockbackActive && (movement.CurrentVelocity.y <= 0.01f && collisionSenses.isGrounded || Time.time >= knockbackStartTime + data.maxKnockbackTime))
+            if (isKnockbackActive && (Movement.CurrentVelocity.y <= 0.01f && CollisionSenses.isGrounded || Time.time >= knockbackStartTime + data.maxKnockbackTime))
             {
                 isKnockbackActive = false;
                 movement.CanSetVelocity = true;

@@ -55,19 +55,12 @@ public class Hellhound : Entity
     
     private void Start() 
     {
-        stateMachine.Initialize(moveState);
+        stateMachine.Initialize(idleState);
     }
 
     private void OnDestroy()
     {
         
-    }
-
-    public override void OnDrawGizmos()
-    {
-        base.OnDrawGizmos();
-
-        Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.attackRadius);
     }
 
 }

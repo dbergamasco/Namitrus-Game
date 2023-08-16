@@ -36,7 +36,7 @@ public class Archer_MoveState : MoveState
         }
         else if(isDetectingWall || !isDetectingLedge)
         {
-            archer.idleState.SetFlipAfterIdle(true);
+            archer.idleState.SetFlipIdle(true);
             stateMachine.ChangeState(archer.idleState);
         }
     }

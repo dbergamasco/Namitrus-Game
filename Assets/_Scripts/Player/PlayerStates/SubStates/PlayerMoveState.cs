@@ -1,8 +1,14 @@
 public class PlayerMoveState : PlayerGroundedState
 {
-    public PlayerMoveState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName){
+    public PlayerMoveState(Player player,
+                           PlayerStateMachine stateMachine,
+                           PlayerData playerData,
+                           string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    {
         
     }
+
+
 
     public override void DoCheck()
     {

@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: hellHoundCore
   m_EditorClassIdentifier: 
   <CoreComponentData>k__BackingField:
+  - rid: 8757110216637022212
   - rid: 8757110170127433733
-  - rid: 8757110170127433732
   - rid: 8757110170127433728
   - rid: 8757110170127433729
   - rid: 8757110170127433730
   - rid: 8757110170127433731
+  - rid: 8757110173760749568
+  - rid: 8757110216637022211
+  - rid: 8757110216637022215
   references:
     version: 2
     RefIds:
@@ -39,9 +42,11 @@ MonoBehaviour:
       type: {class: LedgeCheckVerticalData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
       data:
         name: LedgeCheckVerticalData
-        Debug: 0
-        ledgeCheckVerticalDistance: 0.2
-        whatIsGround:
+        Debug: 1
+        rangePosition: {x: 1.2, y: 0.8}
+        rangeRadius: {x: 0.1, y: 0.1}
+        distance: 0.3
+        detectionLayer:
           serializedVersion: 2
           m_Bits: 128
     - rid: 8757110170127433731
@@ -50,13 +55,35 @@ MonoBehaviour:
         name: HealthSystemData
         MaxHealth: 50
         HealthRegen: 0.1
-    - rid: 8757110170127433732
-      type: {class: ParticleManagerData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
-      data:
-        name: ParticleManagerData
     - rid: 8757110170127433733
       type: {class: MovementData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
       data:
         name: MovementData
-        moveSpeed: 0
-        jumpForce: 0
+    - rid: 8757110173760749568
+      type: {class: PlayerDetectorData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: PlayerDetectorData
+        Debug: 0
+        closeRangePos: {x: 0.8, y: 0}
+        closeRangeRadius: {x: 1, y: 0.9}
+        longRangePos: {x: 3.9, y: 0}
+        longRangeRadius: {x: 2, y: 0.9}
+        detectionLayer:
+          serializedVersion: 2
+          m_Bits: 64
+    - rid: 8757110216637022211
+      type: {class: DeathData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: DeathData
+        deathParticles:
+        - {fileID: 1828721141799758636, guid: 0a5feee9ecc1e7b43bcb4ea4f4d761d4, type: 3}
+        - {fileID: 4573165492688083778, guid: 5cdbbfee89eb9b04faaffca932bb0409, type: 3}
+    - rid: 8757110216637022212
+      type: {class: ParticleManagerData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: ParticleManagerData
+    - rid: 8757110216637022215
+      type: {class: KnockBackReceiverData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: KnockBackReceiverData
+        maxKnockbackTime: 1

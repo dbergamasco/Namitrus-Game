@@ -12,8 +12,7 @@ namespace _Scripts.CoreSystem
         private BoxCollider2D boxCollider;
 
         public bool isGrounded;
-        public bool isTouchingWallFront;
-        public bool isTouchingWallBack;
+        public bool isTouchingWall;
 
         protected override void Awake()
         {
@@ -32,7 +31,7 @@ namespace _Scripts.CoreSystem
             base.Update();
 
             isGrounded = TouchingGroundDetection();
-            isTouchingWallFront = TouchingWallDetection();
+            isTouchingWall = TouchingWallDetection();
         }
 
         private bool TouchingGroundDetection()

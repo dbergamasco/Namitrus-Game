@@ -25,6 +25,7 @@ public class State
     public virtual void Enter()
     {
         startTime = Time.time;
+        //Debug.Log(animBoolName);
         entity.anim.SetBool(animBoolName, true);
         DoChecks();
     }

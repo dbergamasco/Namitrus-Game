@@ -13,7 +13,10 @@ namespace _Scripts.CoreSystem
 
         public bool Debug;
 
-        [field: SerializeField, Tooltip("Distance between entity BoxCollider center and the ledgeCheckVerticalRadius (to detect ledges to evade fall)")] public float ledgeCheckVerticalDistance;
-        [field: SerializeField, Tooltip("LayerMast that the previously checks will detect")] public LayerMask whatIsGround;
+        [field: SerializeField, Tooltip("Range position")] public Vector2 rangePosition;
+        [field: SerializeField] public Vector2 rangeRadius;
+        [field: SerializeField, Tooltip("Distance to draw a line between range position and ground")] public float distance;
+        [field: SerializeField, Tooltip("Your ground layerMask")] public LayerMask detectionLayer;
+
     }
 }

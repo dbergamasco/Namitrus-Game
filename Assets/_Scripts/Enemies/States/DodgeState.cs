@@ -26,7 +26,7 @@ public class DodgeState : State
     {
         base.DoChecks();
 
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        performCloseRangeAction = entity.CheckPlayerInMinAgroRange();
         isPlayerinMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
 
         if(CollisionSenses)

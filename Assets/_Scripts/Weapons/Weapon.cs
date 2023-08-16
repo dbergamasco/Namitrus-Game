@@ -68,6 +68,11 @@ namespace _Scripts.Weapons
             Data = data;
         }
 
+        public void Init(Core core)
+        {
+            Core = core;
+        }
+
         private void Exit()
         {
             anim.SetBool("active", false);
@@ -88,12 +93,6 @@ namespace _Scripts.Weapons
             EventHandler = BaseGameObject.GetComponent<AnimationEventHandler>();
 
             attackCounterResetTimer = new Timer(attackCounterResetCooldown);
-        }
-
-        private void Start()
-        {
-            GameObject coreTransform = GameObject.Find("Core");
-            Core = coreTransform.GetComponent<Core>();
         }
 
         private void Update()

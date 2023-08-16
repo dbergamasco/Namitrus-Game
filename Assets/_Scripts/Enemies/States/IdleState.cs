@@ -7,11 +7,18 @@ public class IdleState : State
     private Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
     private Movements movement;
 
+    private LedgeCheckVertical LedgeCheckVertical { get => ledgeCheckVertical ??= core.GetCoreComponent<LedgeCheckVertical>(); }
+    private LedgeCheckVertical ledgeCheckVertical;
+
+    private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
+    private CollisionSenses collisionSenses;
+
     protected D_IdleState stateData;
 
-    protected bool flipAfterIdle;
+    protected bool flipIdle;
     protected bool isIdleTimeOver;
     protected bool isPlayerInMinAgroRange;
+
 
     protected float idleTime;
 
@@ -35,13 +42,14 @@ public class IdleState : State
         Movement?.SetVelocityX(0f);
         isIdleTimeOver = false;
         SetRandomIdleTime();
+
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        if(flipAfterIdle)
+        if(flipIdle)
         {
             Movement?.Flip();
         }
@@ -64,9 +72,9 @@ public class IdleState : State
         base.PhysicsUpdate();
     }
 
-    public void SetFlipAfterIdle(bool flip)
+    public void SetFlipIdle(bool flip)
     {
-        flipAfterIdle = flip;
+        flipIdle = flip;
     }
 
     private void SetRandomIdleTime()

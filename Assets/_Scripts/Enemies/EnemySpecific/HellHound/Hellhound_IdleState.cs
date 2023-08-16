@@ -14,6 +14,7 @@ public class Hellhound_idleState : IdleState
     public override void Enter()
     {
         base.Enter();
+        
     }
 
     public override void Exit()
@@ -38,5 +39,6 @@ public class Hellhound_idleState : IdleState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
     }
 }

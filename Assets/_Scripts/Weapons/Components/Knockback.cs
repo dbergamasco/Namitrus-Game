@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.CoreSystem;
 using _Scripts.Interfaces;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace _Scripts.Weapons.Components
     {
         private ActionHitBox hitBox;
 
-        private CoreSystem.Movements movement;
+        private Movements movement;
 
         private void HandleDetectCollider2D(Collider2D[] colliders)
         {
@@ -27,7 +28,7 @@ namespace _Scripts.Weapons.Components
             base.Start();
 
             hitBox = GetComponent<ActionHitBox>();
-            //movement = Core.GetCoreComponent<CoreSystem.Movement>();
+            movement = Core.GetCoreComponent<Movements>();
 
             hitBox.OnDetectedCollider2D += HandleDetectCollider2D;
         }

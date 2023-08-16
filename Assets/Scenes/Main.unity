@@ -24962,7 +24962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1364926802
 Transform:
   m_ObjectHideFlags: 0
@@ -25151,10 +25151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityData: {fileID: 11400000, guid: 914c4b7b03bcfac4bbd81a3d987da8a8, type: 2}
-  wallCheck: {fileID: 0}
-  ledgeCheck: {fileID: 0}
-  playerCheck: {fileID: 1982811893}
-  groundCheck: {fileID: 0}
   moveStateData: {fileID: 11400000, guid: 5378fba31b3501546b7bd920f4c3dfb2, type: 2}
   idleStateData: {fileID: 11400000, guid: b91b27c8da57d884683428056f1046ab, type: 2}
   playerDetectedStateData: {fileID: 11400000, guid: a5bcb0b605f4ff84d82ba2863fb5375f, type: 2}
@@ -25403,8 +25399,8 @@ GameObject:
   - component: {fileID: 1590907272}
   - component: {fileID: 1590907276}
   - component: {fileID: 1590907277}
-  m_Layer: 9
-  m_Name: Hellhound
+  m_Layer: 8
+  m_Name: HellhoundHere
   m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25419,7 +25415,7 @@ Transform:
   m_GameObject: {fileID: 1590907270}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.051, y: 4.027, z: 0}
+  m_LocalPosition: {x: 9.59, y: 4.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25596,10 +25592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityData: {fileID: 11400000, guid: 2e6975407f10e6c4bbb1b2782d0d2814, type: 2}
-  wallCheck: {fileID: 0}
-  ledgeCheck: {fileID: 0}
-  playerCheck: {fileID: 0}
-  groundCheck: {fileID: 0}
   idleStateData: {fileID: 11400000, guid: 0eee63996195e444bb311645ee8f3d00, type: 2}
   moveStateData: {fileID: 11400000, guid: 3bd84ac03a525524389ca6217260afdc, type: 2}
   playerDetectedData: {fileID: 11400000, guid: 382926a4053d5034c8d023ed7e7c590d, type: 2}
@@ -31745,7 +31737,7 @@ GameObject:
   - component: {fileID: 1992838160}
   - component: {fileID: 1992838162}
   - component: {fileID: 1992838161}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31802,7 +31794,7 @@ Transform:
   m_GameObject: {fileID: 336494060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 4.08, z: 0}
+  m_LocalPosition: {x: 3.89, y: 7.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31822,7 +31814,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

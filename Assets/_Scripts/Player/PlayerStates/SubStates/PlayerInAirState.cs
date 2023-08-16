@@ -9,9 +9,6 @@ public class PlayerInAirState : PlayerState
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
 
-    private LedgeCheckHorizontal LedgeCheckHorizontal { get => ledgeCheckHorizontal ??= core.GetCoreComponent<LedgeCheckHorizontal>(); }
-    private LedgeCheckHorizontal ledgeCheckHorizontal;
-
     #region Inputs Variables
     private int xInput;
     private bool jumpInput;
@@ -47,12 +44,8 @@ public class PlayerInAirState : PlayerState
 
         oldIsTouchingWall = isTouchingWall;
 
-        if(CollisionSenses)
-        {
-            isGrounded = CollisionSenses.isGrounded;
-            isTouchingWall = CollisionSenses.isTouchingWallFront;
-            isTouchingLedge = LedgeCheckHorizontal.isTouchingHorizontalLedge;
-        }
+        isGrounded = CollisionSenses.isGrounded;
+        isTouchingWall = CollisionSenses.isTouchingWall;
 
     }
 

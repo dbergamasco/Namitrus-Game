@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: PlayerCore
   m_EditorClassIdentifier: 
   <CoreComponentData>k__BackingField:
-  - rid: 8757110131351879684
-  - rid: 8757110131351879685
   - rid: 8757110131351879686
+  - rid: 8757110216637022209
+  - rid: 8757110131351879684
+  - rid: 8757110216637022208
+  - rid: 8757110216637022210
+  - rid: 8757110216637022213
+  - rid: 8757110216637022214
   references:
     version: 2
     RefIds:
@@ -23,16 +27,7 @@ MonoBehaviour:
       type: {class: CollisionSensesData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
       data:
         name: CollisionSensesData
-        Debug: 1
-        whatIsGround:
-          serializedVersion: 2
-          m_Bits: 128
-    - rid: 8757110131351879685
-      type: {class: LedgeCheckHorizontalData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
-      data:
-        name: LedgeCheckHorizontalData
-        Debug: 1
-        ledgeCheckHorizontalDistance: 0
+        Debug: 0
         whatIsGround:
           serializedVersion: 2
           m_Bits: 128
@@ -40,5 +35,30 @@ MonoBehaviour:
       type: {class: MovementData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
       data:
         name: MovementData
-        moveSpeed: 0
-        jumpForce: 0
+    - rid: 8757110216637022208
+      type: {class: DamageReceiverData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: DamageReceiverData
+        damageParticles: {fileID: 6108274031930762578, guid: 37ef6c40567be82408635fe7d2042cd3, type: 3}
+    - rid: 8757110216637022209
+      type: {class: ParticleManagerData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: ParticleManagerData
+    - rid: 8757110216637022210
+      type: {class: HealthSystemData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: HealthSystemData
+        MaxHealth: 50
+        HealthRegen: 0.1
+    - rid: 8757110216637022213
+      type: {class: DeathData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: DeathData
+        deathParticles:
+        - {fileID: 1828721141799758636, guid: 0a5feee9ecc1e7b43bcb4ea4f4d761d4, type: 3}
+        - {fileID: 4573165492688083778, guid: 5cdbbfee89eb9b04faaffca932bb0409, type: 3}
+    - rid: 8757110216637022214
+      type: {class: KnockBackReceiverData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: KnockBackReceiverData
+        maxKnockbackTime: 1

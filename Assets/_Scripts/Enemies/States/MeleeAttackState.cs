@@ -8,6 +8,9 @@ public class MeleeAttackState : AttackState
     private Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
     private Movements movement;
 
+    private PlayerDetector PlayerDetector { get => playerDetector ??= core.GetCoreComponent<PlayerDetector>(); }
+    private PlayerDetector playerDetector;
+
     protected D_Melee_AttackState stateData;
 
 
@@ -51,17 +54,17 @@ public class MeleeAttackState : AttackState
     {
         base.TriggerAttack();
 
-        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attackPosition.position, stateData.attackRadius, stateData.whatsIsPlayer);
+        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(PlayerDetector.closeRangePosition, stateData.attackRadius, stateData.whatsIsPlayer);
 
         foreach(Collider2D collider in detectedObjects)
         {
-            IDamageable damageable = collider.GetComponent<IDamageable>();
+            IDamageable damageable = collider.GetComponentInChildren<IDamageable>();
             if(damageable != null)
             {
                 damageable.Damage(stateData.attackDamage);
             }
 
-            IKnockbackable knockbackable = collider.GetComponent<IKnockbackable>();
+            IKnockbackable knockbackable = collider.GetComponentInChildren<IKnockbackable>();
             if(knockbackable != null)
             {
                 knockbackable.Knockback(stateData.knockbackAngle, stateData.knockbackStrength, Movement.FacingDirection);

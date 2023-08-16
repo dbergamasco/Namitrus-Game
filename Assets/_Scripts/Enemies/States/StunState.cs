@@ -31,7 +31,7 @@ public class StunState : State
         {
             isGrounded = CollisionSenses.isGrounded;
         }
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        performCloseRangeAction = entity.CheckPlayerInMinAgroRange();
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
     }
 

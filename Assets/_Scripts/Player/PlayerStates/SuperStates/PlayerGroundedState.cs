@@ -12,8 +12,6 @@ public class PlayerGroundedState : PlayerState
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
 
-    private LedgeCheckHorizontal LedgeCheckHorizontal { get => ledgeCheckHorizontal ??= core.GetCoreComponent<LedgeCheckHorizontal>(); }
-    private LedgeCheckHorizontal ledgeCheckHorizontal;
 
     private bool JumpInput;
     private bool grabInput;
@@ -31,12 +29,9 @@ public class PlayerGroundedState : PlayerState
     {
         base.DoCheck();
 
-        if(CollisionSenses)
-        {
-            isGrounded = CollisionSenses.isGrounded;
-            isTouchingWall = CollisionSenses.isTouchingWallFront;
-            isTouchingLedge = LedgeCheckHorizontal.isTouchingHorizontalLedge;
-        }
+        isGrounded = CollisionSenses.isGrounded;
+        isTouchingWall = CollisionSenses.isTouchingWall;
+
         
     }
 

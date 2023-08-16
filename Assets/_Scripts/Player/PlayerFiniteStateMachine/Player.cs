@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
 
         weapon = transform.Find("Weapon").GetComponent<Weapon>();
 
-        //weapon.SetCore(CoreSystem);
+        weapon.Init(Core);
         
         StateMachine = new PlayerStateMachine();
 
@@ -71,8 +71,6 @@ public class Player : MonoBehaviour
         //LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
         //DashState = new PlayerDashState(this, StateMachine, playerData, "inAir");
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", weapon);
-
-        //healthBar.SetMaxHealth(Core.GetCoreComponent<Stats>().Health.CurrentValue);
         
 
     }
@@ -90,7 +88,7 @@ public class Player : MonoBehaviour
     {
         Core.LogicUpdate();
         
-        //healthBar.SetHealth(CoreSystem.GetCoreComponent<Stats>().Health.CurrentValue);
+        healthBar.SetMaxHealth(Core.GetCoreComponent<HealthSystem>().CurrentHealth);
 
         StateMachine.CurrentState.LogicUpdate();
         

@@ -78,10 +78,4 @@ public class Archer : Entity
         
     }
 
-    public override void OnDrawGizmos()
-    {
-        base.OnDrawGizmos();
-
-        Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.attackRadius);
-    }
 }

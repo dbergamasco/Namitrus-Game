@@ -31,14 +31,11 @@ public class ChargeState : State
         base.DoChecks();
 
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+
+        isDetectingLedge = LedgeCheckVertical.isDetectingLedge();
+        isDetectingWall = CollisionSenses.isTouchingWall;
         
-        if(CollisionSenses)
-        {
-            isDetectingLedge = LedgeCheckVertical.isTouchingVerticalLedge;
-            isDetectingWall = CollisionSenses.isTouchingWallFront;
-        }  
-        
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        performCloseRangeAction = entity.CheckPlayerInMinAgroRange();
     }
 
     public override void Enter()

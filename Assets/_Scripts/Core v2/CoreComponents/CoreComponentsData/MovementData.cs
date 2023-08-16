@@ -10,8 +10,5 @@ namespace _Scripts.CoreSystem
         {
             ComponentDependency = typeof(Movements);
         }
-
-        [field: Header("Move Data"), SerializeField, Tooltip("Movespeed in X angle of the entity")] public float moveSpeed;
-        [field: Header("Jump Data"), SerializeField, Tooltip("Jump force of the entity jump")] public float jumpForce;
     }
 }

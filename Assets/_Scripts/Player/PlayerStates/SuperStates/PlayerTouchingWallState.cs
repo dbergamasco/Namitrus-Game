@@ -37,7 +37,7 @@ public class PlayerTouchingWallState : PlayerState {
         base.DoCheck();
 
         isGrounded = CollisionSenses.isGrounded;
-        isTouchingWall = CollisionSenses.isTouchingWallFront;
+        isTouchingWall = CollisionSenses.isTouchingWall;
         isTouchingLedge = LedgeCheckHorizontal.isTouchingHorizontalLedge;
     }
 

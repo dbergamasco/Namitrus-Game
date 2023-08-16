@@ -6,6 +6,9 @@ public class Entity : MonoBehaviour
     private Movements Movement { get => movement ??= Core.GetCoreComponent<Movements>(); }
     private Movements movement;
 
+    protected PlayerDetector PlayerDetector { get => playerDetector ??= Core.GetCoreComponent<PlayerDetector>(); }
+    private PlayerDetector playerDetector;
+
     public Core Core { get; private set; }
 
     public FiniteStateMachine stateMachine;
@@ -17,7 +20,6 @@ public class Entity : MonoBehaviour
 
     public int lastDamageDirection { get; private set; }
 
-    private float currentHealth;
     private float currentStunResistance;
     private float lastDamageTime;
 
@@ -32,7 +34,6 @@ public class Entity : MonoBehaviour
     {
         Core = GetComponentInChildren<Core>();
 
-        currentHealth = entityData.maxHealth;
         currentStunResistance = entityData.stunResistance;
 
         anim = GetComponent<Animator>();
@@ -40,6 +41,7 @@ public class Entity : MonoBehaviour
 
         stateMachine = new FiniteStateMachine();
     }
+
 
     public virtual void Update()
     {
@@ -61,17 +63,12 @@ public class Entity : MonoBehaviour
 
     public virtual bool CheckPlayerInMinAgroRange()
     {
-        return Physics2D.Raycast(playerCheck.position, transform.right, entityData.minAgroDistance, entityData.whatIsPlayer);
+        return PlayerDetector.hasCloseRangedDetected();
     }
 
     public virtual bool CheckPlayerInMaxAgroRange()
     {
-        return Physics2D.Raycast(playerCheck.position, transform.right, entityData.maxAgroDistance, entityData.whatIsPlayer);
-    }
-
-    public virtual bool CheckPlayerInCloseRangeAction()
-    {
-        return Physics2D.Raycast(playerCheck.position, transform.right, entityData.closeRangeActionDistance, entityData.whatIsPlayer);
+        return PlayerDetector.hasLongRangedDetected();
     }
 
     public virtual void DamageHop(float velocity)
@@ -86,17 +83,5 @@ public class Entity : MonoBehaviour
         currentStunResistance = entityData.stunResistance;
     }
 
-    public virtual void OnDrawGizmos()
-    {
-        if(Core != null)
-        {
-            Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * Movement.FacingDirection * entityData.wallCheckDistance));
-            Gizmos.DrawLine(ledgeCheck.position, ledgeCheck.position + (Vector3)(Vector2.down * entityData.ledgeCheckDistance));
 
-            Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.closeRangeActionDistance), 0.2f);
-            Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.minAgroDistance), 0.2f);
-            Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.maxAgroDistance), 0.2f);
-        }
-        
-    }
 }

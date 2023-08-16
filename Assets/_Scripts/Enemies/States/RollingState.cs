@@ -28,7 +28,7 @@ public class RollingState : State
     {
         base.DoChecks();
 
-        performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        performCloseRangeAction = entity.CheckPlayerInMinAgroRange();
         isPlayerinMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
 
         if(CollisionSenses)

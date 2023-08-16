@@ -23,17 +23,22 @@ public class HellHound_moveState : MoveState
 
     public override void LogicUpdate()
     {
+
         base.LogicUpdate();
 
-        if(isPlayerInMinAgroRange)
+        if(isTimeBeforeMoveOver)
         {
-            stateMachine.ChangeState(hellhound.playerDetectedState);
+            if(isPlayerInMinAgroRange || isPlayerInMaxAgroRange)
+            {
+                stateMachine.ChangeState(hellhound.playerDetectedState);
+            }
+            else if(isDetectingWall || !isDetectingLedge)
+            {
+                hellhound.idleState.SetFlipIdle(true);
+                stateMachine.ChangeState(hellhound.idleState);
+            }
         }
-        else if(isDetectingWall || !isDetectingLedge)
-        {
-            hellhound.idleState.SetFlipAfterIdle(true);
-            stateMachine.ChangeState(hellhound.idleState);
-        }
+    
     }
 
     public override void PhysicsUpdate()

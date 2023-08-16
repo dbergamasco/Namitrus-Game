@@ -1,4 +1,5 @@
 using _Scripts.CoreSystem;
+using UnityEngine;
 
 public class MoveState : State
 {
@@ -17,6 +18,9 @@ public class MoveState : State
     protected bool isDetectingWall;
     protected bool isDetectingLedge;
     protected bool isPlayerInMinAgroRange;
+    protected bool isPlayerInMaxAgroRange;
+
+    protected bool isTimeBeforeMoveOver;
 
     public MoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_MoveState stateData) : base(entity, stateMachine, animBoolName)
     {
@@ -27,19 +31,18 @@ public class MoveState : State
     {
         base.DoChecks();
 
-        if(CollisionSenses)
-        {
-        isDetectingLedge = LedgeCheckVertical.isTouchingVerticalLedge;
-        isDetectingWall = CollisionSenses.isTouchingWallFront;
-        }
+        isDetectingLedge = LedgeCheckVertical.isDetectingLedge();
+        isDetectingWall = CollisionSenses.isTouchingWall;
+
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
     }
 
     public override void Enter()
     {
         base.Enter();
 
-        Movement?.SetVelocityX(stateData.movementSpeed * Movement.FacingDirection);
+        isTimeBeforeMoveOver = false;
 
     }
 
@@ -53,6 +56,11 @@ public class MoveState : State
         base.LogicUpdate();
 
         Movement?.SetVelocityX(stateData.movementSpeed * Movement.FacingDirection);
+
+        if(Time.time > startTime + stateData.timeBeforeMove)
+        {
+            isTimeBeforeMoveOver = true;
+        }
     }
 
     public override void PhysicsUpdate()

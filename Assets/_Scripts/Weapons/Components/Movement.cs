@@ -10,7 +10,7 @@ namespace _Scripts.Weapons.Components
     public class Movement : WeaponComponent<MovementData, AttackMovement>
     {
         
-        private Movements CoreMovement { get => coreMovement ??= Core?.GetCoreComponent<Movements>(); }
+        private Movements CoreMovement { get => coreMovement ??= Core.GetCoreComponent<Movements>(); }
         private Movements coreMovement;
 
         private void HandleStartMovement()

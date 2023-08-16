@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Hellhound_MoveStateData
   m_EditorClassIdentifier: 
   movementSpeed: 3
+  timeBeforeMove: 0.2
