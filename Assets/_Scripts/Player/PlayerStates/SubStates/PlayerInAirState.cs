@@ -9,6 +9,9 @@ public class PlayerInAirState : PlayerState
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
 
+    private LedgeCheck LedgeCheck { get => ledgeCheck ??= core.GetCoreComponent<LedgeCheck>(); }
+    private LedgeCheck ledgeCheck;
+
     #region Inputs Variables
     private int xInput;
     private bool jumpInput;
@@ -44,9 +47,14 @@ public class PlayerInAirState : PlayerState
 
         oldIsTouchingWall = isTouchingWall;
 
-        isGrounded = CollisionSenses.isGrounded;
-        isTouchingWall = CollisionSenses.isTouchingWall;
+        isGrounded = CollisionSenses.isDetectingGround();
+        isTouchingWall = CollisionSenses.isDetectingWall();
+        isTouchingLedge = LedgeCheck.isDetectingLedge();
 
+        if(isTouchingWall && !isTouchingLedge)
+        {
+            player.LedgeClimbState.SetDetectedPosition(player.transform.position);
+        }
     }
 
     public override void Enter()
@@ -84,6 +92,10 @@ public class PlayerInAirState : PlayerState
         else if(isGrounded && Movement.CurrentVelocity.y < 0.01f)
         {
             stateMachine.ChangeState(player.LandState);
+        }
+        else if(isTouchingWall && !isTouchingLedge && !isGrounded)
+        {
+            stateMachine.ChangeState(player.LedgeClimbState);
         }
         else if (jumpInput && player.JumpState.CanJump())
         {

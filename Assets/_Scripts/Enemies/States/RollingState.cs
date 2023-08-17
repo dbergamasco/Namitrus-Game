@@ -33,7 +33,7 @@ public class RollingState : State
 
         if(CollisionSenses)
         {
-            isGrounded = CollisionSenses.isGrounded;
+            isGrounded = CollisionSenses.isDetectingGround();
         }
         
     }

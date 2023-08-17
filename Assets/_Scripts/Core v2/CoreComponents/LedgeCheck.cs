@@ -10,7 +10,9 @@ namespace _Scripts.CoreSystem
         private Movements movement; 
 
         private Vector2 center;
-        private Vector3 rangePosition;
+
+        public Vector3 LedgeCheckPosition { get => ledgeCheckPosition; private set => ledgeCheckPosition = value; }
+        private Vector3 ledgeCheckPosition;
 
         protected override void Awake()
         {
@@ -26,18 +28,18 @@ namespace _Scripts.CoreSystem
 
             center = transform.position;
 
-            rangePosition = CalculateCubePosition(center, data.rangePosition);
+            LedgeCheckPosition = CalculateCubePosition(center, data.rangePosition);
         }
 
         public bool isDetectingLedge()
         {
             if(data.isVertical)
             {
-                return Physics2D.Raycast(rangePosition, Vector2.down, data.distance, data.detectionLayer);
+                return Physics2D.Raycast(ledgeCheckPosition, Vector2.down, data.distance, data.detectionLayer);
             }
             else
             {
-                return Physics2D.Raycast(rangePosition, Vector2.right * Movement.FacingDirection, data.distance, data.detectionLayer);
+                return Physics2D.Raycast(ledgeCheckPosition, Vector2.right * Movement.FacingDirection, data.distance, data.detectionLayer);
             }  
         }
 

@@ -21,7 +21,7 @@ public class PlayerAbilityState : PlayerState
 
         if(CollisionSenses)
         {
-            isGrounded = CollisionSenses.isGrounded;
+            isGrounded = CollisionSenses.isDetectingGround();
         }
         
     }

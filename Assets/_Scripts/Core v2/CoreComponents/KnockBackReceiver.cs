@@ -32,7 +32,7 @@ namespace _Scripts.CoreSystem
 
         private void CheckKnockback()
         {
-            if (isKnockbackActive && (Movement.CurrentVelocity.y <= 0.01f && CollisionSenses.isGrounded || Time.time >= knockbackStartTime + data.maxKnockbackTime))
+            if (isKnockbackActive && (Movement.CurrentVelocity.y <= 0.01f && CollisionSenses.isDetectingGround() || Time.time >= knockbackStartTime + data.maxKnockbackTime))
             {
                 isKnockbackActive = false;
                 movement.CanSetVelocity = true;

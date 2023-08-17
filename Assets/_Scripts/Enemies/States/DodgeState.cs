@@ -31,7 +31,7 @@ public class DodgeState : State
 
         if(CollisionSenses)
         {
-            isGrounded = CollisionSenses.isGrounded;
+            isGrounded = CollisionSenses.isDetectingGround();
         }
         
     }

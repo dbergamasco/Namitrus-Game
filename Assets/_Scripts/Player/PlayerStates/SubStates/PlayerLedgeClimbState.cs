@@ -50,7 +50,7 @@ public class PlayerLedgeClimbState : PlayerState
 
         Movement?.SetVelocityZero();
         player.transform.position = detectedPos;
-        //cornerPos = DetermineCornerPosition();
+        cornerPos = DetermineCornerPosition();
 
         startPos.Set(cornerPos.x - (Movement.FacingDirection * playerData.startOffset.x), cornerPos.y - playerData.startOffset.y);
         stopPos.Set(cornerPos.x + (Movement.FacingDirection * playerData.stopOffset.x), cornerPos.y + playerData.stopOffset.y);
@@ -96,7 +96,17 @@ public class PlayerLedgeClimbState : PlayerState
     }
 
     public void SetDetectedPosition(Vector2 pos) => detectedPos = pos;
-
     
+    private Vector2 DetermineCornerPosition()
+    {
+        RaycastHit2D xHit = Physics2D.Raycast(CollisionSenses.WallCheckPosition, Vector2.right * Movement.FacingDirection, CollisionSenses.WallCheckDistance, CollisionSenses.WhatIsGround);
+        float xDist = xHit.distance;
+        workspace.Set((xDist + 0.015f) * Movement.FacingDirection, 0f);
+        RaycastHit2D yHit = Physics2D.Raycast(LedgeCheck.LedgeCheckPosition + (Vector3)(workspace), Vector2.down, LedgeCheck.LedgeCheckPosition.y - CollisionSenses.WallCheckPosition.y + 0.015f, CollisionSenses.WhatIsGround);
+        float yDist = yHit.distance;
+
+        workspace.Set(CollisionSenses.WallCheckPosition.x + (xDist * Movement.FacingDirection), LedgeCheck.LedgeCheckPosition.y - yDist);
+        return workspace;
+    }
 
 }

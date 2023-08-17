@@ -33,7 +33,7 @@ public class ChargeState : State
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
 
         isDetectingLedge = LedgeCheck.isDetectingLedge();
-        isDetectingWall = CollisionSenses.isTouchingWall;
+        isDetectingWall = CollisionSenses.isDetectingWall();
         
         performCloseRangeAction = entity.CheckPlayerInMinAgroRange();
     }

@@ -32,7 +32,7 @@ public class MoveState : State
         base.DoChecks();
 
         isDetectingLedge = LedgeCheck.isDetectingLedge();
-        isDetectingWall = CollisionSenses.isTouchingWall;
+        isDetectingWall = CollisionSenses.isDetectingWall();
 
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
