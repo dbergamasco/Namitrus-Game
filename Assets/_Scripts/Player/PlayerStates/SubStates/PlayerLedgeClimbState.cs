@@ -10,8 +10,8 @@ public class PlayerLedgeClimbState : PlayerState
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
 
-    private LedgeCheckHorizontal LedgeCheckHorizontal { get => ledgeCheckHorizontal ??= core.GetCoreComponent<LedgeCheckHorizontal>(); }
-    private LedgeCheckHorizontal ledgeCheckHorizontal;
+    private LedgeCheck LedgeCheck { get => ledgeCheck ??= core.GetCoreComponent<LedgeCheck>(); }
+    private LedgeCheck ledgeCheck;
 
     private Vector2 detectedPos;
     private Vector2 cornerPos;
@@ -48,24 +48,15 @@ public class PlayerLedgeClimbState : PlayerState
     {
         base.Enter();
 
-        player.transform.position = detectedPos;
-        Debug.Log("Player pos after setting = "+ player.transform.position);
-        Debug.Log("player ledge offset position: "+ LedgeCheckHorizontal.ledgeCheckPosition);
-
         Movement?.SetVelocityZero();
-        
-        cornerPos = LedgeCheckHorizontal.ledgeCheckPosition;
+        player.transform.position = detectedPos;
+        //cornerPos = DetermineCornerPosition();
 
-        startPos = detectedPos;
-        Vector2 diagonalDirection = new Vector2(Movement.FacingDirection, 1);
-        float distance = 0.7f;
-
-        Vector2 normalizedDirection = diagonalDirection.normalized;
-        stopPos = startPos + normalizedDirection * distance;
-
-        
+        startPos.Set(cornerPos.x - (Movement.FacingDirection * playerData.startOffset.x), cornerPos.y - playerData.startOffset.y);
+        stopPos.Set(cornerPos.x + (Movement.FacingDirection * playerData.stopOffset.x), cornerPos.y + playerData.stopOffset.y);
 
         player.transform.position = startPos;
+
     }
 
     public override void Exit()
@@ -92,8 +83,6 @@ public class PlayerLedgeClimbState : PlayerState
         else
         {
             xInput = player.InputHandler.NormInputX;
-            yInput = player.InputHandler.NormInputY;
-            jumpInput = player.InputHandler.JumpInput;
 
             Movement?.SetVelocityZero();
             player.transform.position = startPos;
@@ -103,13 +92,11 @@ public class PlayerLedgeClimbState : PlayerState
                 isClimbing = true;
                 player.Anim.SetBool("climbLedge", true);
             }
-            else if(yInput == -1 && isHanging && !isClimbing)
-            {
-                stateMachine.ChangeState(player.InAirState);
-            }
         }
     }
 
     public void SetDetectedPosition(Vector2 pos) => detectedPos = pos;
+
+    
 
 }

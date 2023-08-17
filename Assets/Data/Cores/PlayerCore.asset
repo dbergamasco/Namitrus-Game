@@ -20,6 +20,7 @@ MonoBehaviour:
   - rid: 8757110216637022210
   - rid: 8757110216637022213
   - rid: 8757110216637022214
+  - rid: 8757110237112565763
   references:
     version: 2
     RefIds:
@@ -27,7 +28,7 @@ MonoBehaviour:
       type: {class: CollisionSensesData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
       data:
         name: CollisionSensesData
-        Debug: 0
+        Debug: 1
         whatIsGround:
           serializedVersion: 2
           m_Bits: 128
@@ -62,3 +63,15 @@ MonoBehaviour:
       data:
         name: KnockBackReceiverData
         maxKnockbackTime: 1
+    - rid: 8757110237112565763
+      type: {class: LedgeCheckData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: LedgeCheckData
+        Debug: 1
+        isVertical: 0
+        rangePosition: {x: 0.2, y: -0.7}
+        rangeRadius: {x: 0.1, y: 0.1}
+        distance: 0.3
+        detectionLayer:
+          serializedVersion: 2
+          m_Bits: 0

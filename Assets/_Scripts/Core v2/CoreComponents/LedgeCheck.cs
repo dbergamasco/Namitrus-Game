@@ -4,12 +4,10 @@ using UnityEngine;
 
 namespace _Scripts.CoreSystem
 {
-    public class LedgeCheckVertical : CoreComponents<LedgeCheckVerticalData>
+    public class LedgeCheck : CoreComponents<LedgeCheckData>
     {
         private Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
         private Movements movement; 
-
-        private BoxCollider2D boxCollider;
 
         private Vector2 center;
         private Vector3 rangePosition;
@@ -33,7 +31,14 @@ namespace _Scripts.CoreSystem
 
         public bool isDetectingLedge()
         {
-            return Physics2D.Raycast(rangePosition, Vector2.down, data.distance, data.detectionLayer);
+            if(data.isVertical)
+            {
+                return Physics2D.Raycast(rangePosition, Vector2.down, data.distance, data.detectionLayer);
+            }
+            else
+            {
+                return Physics2D.Raycast(rangePosition, Vector2.right * Movement.FacingDirection, data.distance, data.detectionLayer);
+            }  
         }
 
 
@@ -52,13 +57,23 @@ namespace _Scripts.CoreSystem
                 Vector3 cubeSize = new Vector3(data.rangeRadius.x * 2, data.rangeRadius.y * 2, 0);
 
                 Gizmos.color = Color.blue;
-                Gizmos.DrawWireCube(cubePosition, cubeSize);
+                 Gizmos.DrawWireCube(cubePosition, cubeSize);
+                if(data.isVertical)
+                {
+                    Vector3 lineStart = cubePosition - new Vector3(0, data.rangeRadius.y, 0);
+                    Vector3 lineEnd = lineStart - new Vector3(0, data.distance, 0);
 
-                Vector3 lineStart = cubePosition - new Vector3(0, data.rangeRadius.y, 0);
-                Vector3 lineEnd = lineStart - new Vector3(0, data.distance, 0);
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawLine(lineStart, lineEnd);
+                }
+                else
+                {
+                    Vector3 lineStart = cubePosition - new Vector3(data.rangeRadius.x * -Movement.FacingDirection, 0, 0);
+                    Vector3 lineEnd = lineStart - new Vector3(data.distance * -Movement.FacingDirection, 0 , 0);
 
-                Gizmos.color = Color.red;
-                Gizmos.DrawLine(lineStart, lineEnd);
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawLine(lineStart, lineEnd);
+                }
             }
         }
         #endregion

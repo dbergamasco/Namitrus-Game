@@ -10,8 +10,8 @@ public class ChargeState : State
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
 
-    private LedgeCheckVertical LedgeCheckVertical { get => ledgeCheckVertical ??= core.GetCoreComponent<LedgeCheckVertical>(); }
-    private LedgeCheckVertical ledgeCheckVertical;
+    private LedgeCheck LedgeCheck { get => ledgeCheck ??= core.GetCoreComponent<LedgeCheck>(); }
+    private LedgeCheck ledgeCheck;
 
     protected D_ChargeState stateData;
 
@@ -32,7 +32,7 @@ public class ChargeState : State
 
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
 
-        isDetectingLedge = LedgeCheckVertical.isDetectingLedge();
+        isDetectingLedge = LedgeCheck.isDetectingLedge();
         isDetectingWall = CollisionSenses.isTouchingWall;
         
         performCloseRangeAction = entity.CheckPlayerInMinAgroRange();

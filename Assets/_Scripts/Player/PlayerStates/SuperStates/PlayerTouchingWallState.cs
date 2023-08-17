@@ -15,9 +15,6 @@ public class PlayerTouchingWallState : PlayerState {
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
 
-    private LedgeCheckHorizontal LedgeCheckHorizontal { get => ledgeCheckHorizontal ??= core.GetCoreComponent<LedgeCheckHorizontal>(); }
-    private LedgeCheckHorizontal ledgeCheckHorizontal;
-
     public PlayerTouchingWallState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName){
 
     }
@@ -37,8 +34,7 @@ public class PlayerTouchingWallState : PlayerState {
         base.DoCheck();
 
         isGrounded = CollisionSenses.isGrounded;
-        isTouchingWall = CollisionSenses.isTouchingWall;
-        isTouchingLedge = LedgeCheckHorizontal.isTouchingHorizontalLedge;
+        isTouchingWall = CollisionSenses.isTouchingWall;    
     }
 
     public override void Enter()

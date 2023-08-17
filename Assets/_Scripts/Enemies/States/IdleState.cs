@@ -7,8 +7,8 @@ public class IdleState : State
     private Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
     private Movements movement;
 
-    private LedgeCheckVertical LedgeCheckVertical { get => ledgeCheckVertical ??= core.GetCoreComponent<LedgeCheckVertical>(); }
-    private LedgeCheckVertical ledgeCheckVertical;
+    private LedgeCheck LedgeCheck { get => ledgeCheck ??= core.GetCoreComponent<LedgeCheck>(); }
+    private LedgeCheck ledgeCheck;
 
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;

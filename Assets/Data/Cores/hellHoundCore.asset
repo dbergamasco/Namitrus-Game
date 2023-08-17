@@ -17,11 +17,11 @@ MonoBehaviour:
   - rid: 8757110170127433733
   - rid: 8757110170127433728
   - rid: 8757110170127433729
-  - rid: 8757110170127433730
   - rid: 8757110170127433731
   - rid: 8757110173760749568
   - rid: 8757110216637022211
   - rid: 8757110216637022215
+  - rid: 8757110237112565762
   references:
     version: 2
     RefIds:
@@ -38,17 +38,6 @@ MonoBehaviour:
       data:
         name: DamageReceiverData
         damageParticles: {fileID: 6108274031930762578, guid: 37ef6c40567be82408635fe7d2042cd3, type: 3}
-    - rid: 8757110170127433730
-      type: {class: LedgeCheckVerticalData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
-      data:
-        name: LedgeCheckVerticalData
-        Debug: 1
-        rangePosition: {x: 1.2, y: 0.8}
-        rangeRadius: {x: 0.1, y: 0.1}
-        distance: 0.3
-        detectionLayer:
-          serializedVersion: 2
-          m_Bits: 128
     - rid: 8757110170127433731
       type: {class: HealthSystemData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
       data:
@@ -87,3 +76,15 @@ MonoBehaviour:
       data:
         name: KnockBackReceiverData
         maxKnockbackTime: 1
+    - rid: 8757110237112565762
+      type: {class: LedgeCheckData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: LedgeCheckData
+        Debug: 1
+        isVertical: 1
+        rangePosition: {x: 1, y: 0.8}
+        rangeRadius: {x: 0.1, y: 0.1}
+        distance: 0.3
+        detectionLayer:
+          serializedVersion: 2
+          m_Bits: 128
