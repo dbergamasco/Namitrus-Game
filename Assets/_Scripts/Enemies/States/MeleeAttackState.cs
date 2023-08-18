@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class MeleeAttackState : AttackState
 {
-
     private Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
     private Movements movement;
 
-    private PlayerDetector PlayerDetector { get => playerDetector ??= core.GetCoreComponent<PlayerDetector>(); }
-    private PlayerDetector playerDetector;
+    private E_AttackPosition E_AttackPosition { get => e_AttackPosition ??= core.GetCoreComponent<E_AttackPosition>(); }
+    private E_AttackPosition e_AttackPosition;
+
+    private Vector3 attackPosition;
 
     protected D_Melee_AttackState stateData;
 
 
-    public MeleeAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_Melee_AttackState stateData) : base(entity, stateMachine, animBoolName, attackPosition)
+    public MeleeAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_Melee_AttackState stateData) : base(entity, stateMachine, animBoolName)
     {
         this.stateData = stateData;
     }
@@ -27,6 +28,8 @@ public class MeleeAttackState : AttackState
     public override void Enter()
     {
         base.Enter();
+
+        attackPosition = E_AttackPosition.MelleeAttackPosition;
 
     }
 
@@ -54,7 +57,7 @@ public class MeleeAttackState : AttackState
     {
         base.TriggerAttack();
 
-        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(PlayerDetector.closeRangePosition, stateData.attackRadius, stateData.whatsIsPlayer);
+        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attackPosition, stateData.attackRadius, stateData.whatsIsPlayer);
 
         foreach(Collider2D collider in detectedObjects)
         {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Interfaces;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -28,6 +29,10 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private Transform damagePosition;
 
+    private float damage;
+    private Vector2 knockbackAngle;
+    private float knockbackStrength;
+    private int direction;
 
     private void Start()
     {
@@ -45,8 +50,6 @@ public class Projectile : MonoBehaviour
     {
         if(!hasHitGround)
         {
-            //attackDetails.position = transform.position;
-
             if(isGravityOn)
             {
                 float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
@@ -57,12 +60,24 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Collider2D damageHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsPlayer);
+        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(damagePosition.position, damageRadius, whatIsPlayer);
         Collider2D groundHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsGround);
 
-        if(damageHit)
+        foreach(Collider2D collider in detectedObjects)
         {
-            Destroy (gameObject);
+            IDamageable damageable = collider.GetComponentInChildren<IDamageable>();
+            if(damageable != null)
+            {
+                damageable.Damage(damage);
+                Destroy (gameObject);
+            }
+
+            IKnockbackable knockbackable = collider.GetComponentInChildren<IKnockbackable>();
+            if(knockbackable != null)
+            {
+                knockbackable.Knockback(knockbackAngle, knockbackStrength, direction);
+            }
+
         }
 
         if(groundHit)
@@ -88,11 +103,14 @@ public class Projectile : MonoBehaviour
         
     }
 
-    public void FireProjectile(float speed, float travelDistance, float damage)
+    public void FireProjectile(float speed, float travelDistance, float damage, Vector2 knockbackAngle, float knockbackStrength, int direction)
     {
         this.speed = speed;
         this.travelDistance = travelDistance;
-        //attackDetails.damageAmount = damage;
+        this.damage = damage;
+        this.knockbackAngle = knockbackAngle;
+        this.knockbackStrength = knockbackStrength;
+        this.direction = direction;
     }
 
     private void OnDrawGizmos()

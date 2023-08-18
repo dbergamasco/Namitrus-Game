@@ -6,7 +6,7 @@ public class Hellhound_MeeleAttackState : MeleeAttackState
 {
     private Hellhound hellhound;
 
-    public Hellhound_MeeleAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_Melee_AttackState stateData, Hellhound hellhound) : base(entity, stateMachine, animBoolName, attackPosition, stateData)
+    public Hellhound_MeeleAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_Melee_AttackState stateData, Hellhound hellhound) : base(entity, stateMachine, animBoolName, stateData)
     {
         this.hellhound = hellhound;
     }

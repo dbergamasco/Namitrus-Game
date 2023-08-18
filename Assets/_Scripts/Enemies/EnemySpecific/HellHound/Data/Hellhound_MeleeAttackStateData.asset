@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935951a19c84464448486a2b2d72b89f, type: 3}
   m_Name: Hellhound_MeleeAttackStateData
   m_EditorClassIdentifier: 
-  attackRadius: 0.9
+  attackRadius: 1.2
   attackDamage: 10
   knockbackStrength: 7
   knockbackAngle: {x: 1, y: 1}

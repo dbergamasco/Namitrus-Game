@@ -22,6 +22,7 @@ MonoBehaviour:
   - rid: 8757110216637022211
   - rid: 8757110216637022215
   - rid: 8757110237112565762
+  - rid: 8757110261562998785
   references:
     version: 2
     RefIds:
@@ -29,7 +30,7 @@ MonoBehaviour:
       type: {class: CollisionSensesData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
       data:
         name: CollisionSensesData
-        Debug: 1
+        Debug: 0
         groundCheckPosition: {x: 0, y: 0.8}
         groundCheckRadius: {x: 0.1, y: 0.1}
         groundCheckDistance: 0.3
@@ -86,7 +87,7 @@ MonoBehaviour:
       type: {class: LedgeCheckData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
       data:
         name: LedgeCheckData
-        Debug: 1
+        Debug: 0
         isVertical: 1
         rangePosition: {x: 1, y: 0.8}
         rangeRadius: {x: 0.1, y: 0.1}
@@ -94,3 +95,12 @@ MonoBehaviour:
         detectionLayer:
           serializedVersion: 2
           m_Bits: 128
+    - rid: 8757110261562998785
+      type: {class: E_AttackPositionData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
+      data:
+        name: E_AttackPositionData
+        Debug: 1
+        melleeAttackPosition: {x: 0.5, y: 0}
+        melleeAttackPositionRadius: {x: 0.2, y: 0.2}
+        rangedAttackPosition: {x: 0.4, y: -0.2}
+        rangedAttackPositionRadius: {x: 0.2, y: 0.2}

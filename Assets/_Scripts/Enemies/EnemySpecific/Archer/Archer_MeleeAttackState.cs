@@ -6,7 +6,11 @@ public class Archer_MeleeAttackState : MeleeAttackState
 {
     private Archer archer;
 
-    public Archer_MeleeAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_Melee_AttackState stateData, Archer archer) : base(entity, stateMachine, animBoolName, attackPosition, stateData)
+    public Archer_MeleeAttackState(Entity entity,
+                                   FiniteStateMachine stateMachine,
+                                   string animBoolName,
+                                   D_Melee_AttackState stateData,
+                                   Archer archer) : base(entity, stateMachine, animBoolName, stateData)
     {
         this.archer = archer;
     }

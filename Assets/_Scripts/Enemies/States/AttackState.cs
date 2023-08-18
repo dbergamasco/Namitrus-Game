@@ -7,14 +7,11 @@ public class AttackState : State
     private Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
     private Movements movement;
 
-    protected Transform attackPosition;
-
     protected bool isAnimationFinish;
     protected bool isPlayerInMinAgroRange;
 
-    public AttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition) : base(entity, stateMachine, animBoolName)
+    public AttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName) : base(entity, stateMachine, animBoolName)
     {
-        this.attackPosition = attackPosition;
     }
 
     public override void DoChecks()

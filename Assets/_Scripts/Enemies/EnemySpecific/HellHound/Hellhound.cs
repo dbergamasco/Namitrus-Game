@@ -42,7 +42,7 @@ public class Hellhound : Entity
         playerDetectedState = new Hellhound_playedDetectedState(this, stateMachine, "playerDetected", playerDetectedData, this);
         chargeState = new Hellhound_ChargeState(this, stateMachine, "charge", chargeStateData, this);
         lookForPlayerState = new Hellhound_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerStateData, this);
-        meeleAttackState = new Hellhound_MeeleAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
+        meeleAttackState = new Hellhound_MeeleAttackState(this, stateMachine, "meleeAttack", meleeAttackStateData, this);
         stunState = new Hellhound_StunState(this, stateMachine, "stun", stunStateData, this);
         deadState = new Hellhound_DeadState(this, stateMachine, "dead", deadStateData, this);
 

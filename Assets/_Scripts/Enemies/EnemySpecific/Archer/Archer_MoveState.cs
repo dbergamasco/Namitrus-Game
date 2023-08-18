@@ -31,7 +31,7 @@ public class Archer_MoveState : MoveState
         base.LogicUpdate();
         if(isTimeBeforeMoveOver)
         {
-            if(isPlayerInMinAgroRange)
+            if(isPlayerInMinAgroRange || isPlayerInMaxAgroRange)
             {
                 stateMachine.ChangeState(archer.playerDetectedState);
             }

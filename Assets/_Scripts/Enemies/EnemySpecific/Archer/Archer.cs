@@ -51,14 +51,14 @@ public class Archer : Entity
         moveState = new Archer_MoveState(this, stateMachine, "move", moveStateData, this);
         idleState = new Archer_IdleState(this, stateMachine, "idle", idleStateData, this);
         playerDetectedState = new Archer_PlayerDetectedState(this, stateMachine, "playerDetected", playerDetectedStateData, this);
-        meleeAttackState = new Archer_MeleeAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
+        meleeAttackState = new Archer_MeleeAttackState(this, stateMachine, "meleeAttack", meleeAttackStateData, this);
         lookForPlayerState = new Archer_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerStateData, this);
         stunState = new Archer_StunState(this, stateMachine, "stun", stunStateData, this);
         deadState = new Archer_DeadState(this, stateMachine, "dead", deadStateData, this);
         dodgeState = new Archer_DodgeState(this, stateMachine, "dodge", dodgeStateData, this);
         rollingState = new Archer_RollingState(this, stateMachine, "rolling", rollingStateData, this);  
         
-        rangedAttackState = new Archer_RangedAttackState(this, stateMachine, "rangedAttack", rangedAttackPosition, rangedAttackStateData, this);
+        rangedAttackState = new Archer_RangedAttackState(this, stateMachine, "rangedAttack", rangedAttackStateData, this);
         
     }
 
