@@ -28,10 +28,10 @@ MonoBehaviour:
       type: {class: CollisionSensesData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
       data:
         name: CollisionSensesData
-        Debug: 0
+        Debug: 1
         groundCheckPosition: {x: 0, y: 0.8}
         groundCheckRadius: {x: 0.1, y: 0.1}
-        groundCheckDistance: 0.3
+        groundCheckDistance: 0.2
         wallCheckPosition: {x: 0.2, y: 0}
         wallCheckRadius: {x: 0.1, y: 0.1}
         wallCheckDistance: 0.3
@@ -73,11 +73,11 @@ MonoBehaviour:
       type: {class: LedgeCheckData, ns: _Scripts.CoreSystem, asm: Assembly-CSharp}
       data:
         name: LedgeCheckData
-        Debug: 0
+        Debug: 1
         isVertical: 0
         rangePosition: {x: 0.2, y: -0.7}
         rangeRadius: {x: 0.1, y: 0.1}
         distance: 0.3
         detectionLayer:
           serializedVersion: 2
-          m_Bits: 0
+          m_Bits: 128

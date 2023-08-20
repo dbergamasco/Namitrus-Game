@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 588188183}
-  data: {fileID: 11400000, guid: 84c8b864d7c5f044cbb061c47317ac0f, type: 2}
+  data: {fileID: 11400000, guid: 9549065f932d5eb42b7c22806ba3f07f, type: 2}
 --- !u!114 &588188183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,7 +837,7 @@ Animator:
   m_GameObject: {fileID: 643823519}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d4b3dcddfd9c9444f9049c4615ac93ac, type: 2}
+  m_Controller: {fileID: 9100000, guid: b94a3073000564240b70076da2a2e1f0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -24925,13 +24925,13 @@ GameObject:
   - component: {fileID: 1364926803}
   - component: {fileID: 1364926807}
   - component: {fileID: 1364926808}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1364926802
 Transform:
   m_ObjectHideFlags: 0

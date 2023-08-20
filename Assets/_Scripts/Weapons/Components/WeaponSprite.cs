@@ -18,12 +18,13 @@ namespace _Scripts.Weapons.Components
         protected override void HandleEnter()
         {
             base.HandleEnter();
-
+            
             currentWeaponSpriteIndex = 0;
         }
 
         private void HandleEnterAttackPhase(AttackPhases phase)
         {
+            Debug.Log("HandleEnterAttackPhase");
             currentWeaponSpriteIndex = 0;
             currentPhaseSprites = currentAttackData.PhaseSprites.FirstOrDefault(data => data.Phase == phase).Sprites;
         }

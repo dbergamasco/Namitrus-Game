@@ -56,7 +56,6 @@ namespace _Scripts.Weapons
         public void Enter()
         {
             attackCounterResetTimer.StopTimer();
-
             anim.SetBool("active", true);
             anim.SetInteger("counter", CurrentAttackCounter);
 
