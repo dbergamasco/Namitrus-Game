@@ -87,6 +87,7 @@ MonoBehaviour:
       data:
         name: WeaponHolderData
         weaponHolderSize: 3
-        weapon1: {fileID: 11400000, guid: 84c8b864d7c5f044cbb061c47317ac0f, type: 2}
-        weapon2: {fileID: 11400000, guid: 9549065f932d5eb42b7c22806ba3f07f, type: 2}
-        weapon3: {fileID: 11400000, guid: 20ac091067f0cd74183d9436c9eb19f9, type: 2}
+        defaultWeapon: {fileID: 11400000, guid: 9549065f932d5eb42b7c22806ba3f07f, type: 2}
+        weaponsList:
+        - {fileID: 11400000, guid: 84c8b864d7c5f044cbb061c47317ac0f, type: 2}
+        - {fileID: 11400000, guid: 20ac091067f0cd74183d9436c9eb19f9, type: 2}

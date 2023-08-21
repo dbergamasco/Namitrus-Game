@@ -61,7 +61,7 @@ MonoBehaviour:
         name: ActionHitBoxData
         attackData:
         - name: Attack 1
-          Debug: 0
+          Debug: 1
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: -0.11
@@ -69,7 +69,7 @@ MonoBehaviour:
             width: 1.81
             height: 1.83
         - name: Attack 2
-          Debug: 0
+          Debug: 1
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: 0.03
@@ -77,16 +77,16 @@ MonoBehaviour:
             width: 1.74
             height: 1.49
         - name: Attack 3
-          Debug: 0
+          Debug: 1
           <HitBox>k__BackingField:
             serializedVersion: 2
-            x: 0
-            y: 0
-            width: 0
-            height: 0
+            x: 0.01
+            y: -0.5
+            width: 1.55
+            height: 2
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
-          m_Bits: 512
+          m_Bits: 768
     - rid: 8757109922973351937
       type: {class: MovementData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:

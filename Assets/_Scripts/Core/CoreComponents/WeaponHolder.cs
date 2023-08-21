@@ -48,7 +48,6 @@ namespace _Scripts.CoreSystem
         {
             if(currentWeapons.Count < weaponHolderMax)
                 {
-                    Debug.Log("Adding weapon: "+ newWeapon.name);
                     currentWeapons.Add(newWeapon);
                 }
         }
@@ -59,7 +58,6 @@ namespace _Scripts.CoreSystem
             {
                 weaponHolderIndex = (weaponHolderIndex + 1 + currentWeapons.Count) % currentWeapons.Count;
                 WeaponDataSO newWeapon = currentWeapons[weaponHolderIndex];
-                Debug.Log("current weapons index: "+ weaponHolderIndex);
                 weaponGenerator.ChangeWeapon(newWeapon);
             }
             else
@@ -74,7 +72,6 @@ namespace _Scripts.CoreSystem
             {
                 weaponHolderIndex = (weaponHolderIndex - 1 + currentWeapons.Count) % currentWeapons.Count;
                 WeaponDataSO newWeapon = currentWeapons[weaponHolderIndex];
-                Debug.Log("current weapons index: "+ weaponHolderIndex);
                 weaponGenerator.ChangeWeapon(newWeapon);
             }
             else
