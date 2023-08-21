@@ -1,9 +1,10 @@
+using System;
+using _Scripts;
 using _Scripts.CoreSystem;
 using UnityEngine;
 
 public class PlayerGroundedState : PlayerState
 {
-
     protected int xInput;
 
     protected Movements Movement { get => movement ??= core.GetCoreComponent<Movements>(); }
@@ -12,10 +13,11 @@ public class PlayerGroundedState : PlayerState
     private CollisionSenses CollisionSenses { get => collisionSenses ??= core.GetCoreComponent<CollisionSenses>(); }
     private CollisionSenses collisionSenses;
 
-
     private bool JumpInput;
     private bool grabInput;
     private bool dashInput;
+    private bool isSubscribed = false;
+    
 
     private bool isGrounded;
     private bool isTouchingWall;
@@ -39,12 +41,18 @@ public class PlayerGroundedState : PlayerState
         base.Enter();
 
         player.JumpState.ResetAmountOfJumps();
+
+        
+
     }
 
     public override void Exit()
     {
         base.Exit();
+ 
     }
+    
+
 
     public override void LogicUpdate()
     {
@@ -52,8 +60,8 @@ public class PlayerGroundedState : PlayerState
 
         xInput = player.InputHandler.NormInputX;
         JumpInput = player.InputHandler.JumpInput;
-        grabInput = player.InputHandler.GrabInput;
         dashInput = player.InputHandler.DashInput;
+        
 
         if(player.InputHandler.AttackInputs)
         {
@@ -73,5 +81,9 @@ public class PlayerGroundedState : PlayerState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
     }
+
+    
+    
 }

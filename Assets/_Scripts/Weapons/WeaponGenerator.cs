@@ -70,5 +70,10 @@ namespace _Scripts.Weapons
 
             anim.runtimeAnimatorController = data.AnimatorController;
         }
+
+        public void ChangeWeapon(WeaponDataSO newData)
+        {
+            GenerateWeapon(newData);
+        }
     }
 }

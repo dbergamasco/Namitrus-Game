@@ -7,6 +7,8 @@ public class PlayerState
 {
     protected Core core;
 
+    private WeaponHolder WeaponHolder;
+
     protected Player player;
     protected PlayerStateMachine stateMachine;
     protected PlayerData playerData;
@@ -38,12 +40,20 @@ public class PlayerState
         
         isAnimationFinished = false;
         isExitingState = false;
+
+        WeaponHolder = core.GetCoreComponent<WeaponHolder>();
+
+        player.InputHandler.PreviousWeaponRequest += HandlePreviousWeapon;
+        player.InputHandler.NextWeaponRequest += HandleNextWeapon;
     }
 
     public virtual void Exit()
     {
         player.Anim.SetBool(animBoolName, false);
         isExitingState = true;
+
+        player.InputHandler.PreviousWeaponRequest -= HandlePreviousWeapon;
+        player.InputHandler.NextWeaponRequest -= HandleNextWeapon;
     }
 
     public virtual void LogicUpdate(){}
@@ -55,4 +65,8 @@ public class PlayerState
     public virtual void DoCheck(){}
     public virtual void AnimationTrigger(){}
     public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
+
+    private void HandleNextWeapon() => WeaponHolder.NextWeapon();
+
+    private void HandlePreviousWeapon() => WeaponHolder.PreviousWeapon();
 }

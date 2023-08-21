@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    public event Action NextWeaponRequest;
+    public event Action PreviousWeaponRequest;
+
     private PlayerInput playerInput;
     private Camera cam;
 
@@ -18,7 +21,6 @@ public class PlayerInputHandler : MonoBehaviour
     public int NormInputY { get; private set; }
     public bool JumpInput { get; private set; }
     public bool JumpInputStop { get; private set; }
-    public bool GrabInput { get; private set; }
     public bool DashInput { get; private set; }
     public bool DashInputStop { get; private set; }
 
@@ -34,7 +36,6 @@ public class PlayerInputHandler : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         cam = Camera.main;
-
     }
 
     private void Update() 
@@ -79,16 +80,19 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
-    public void OnGrabInput(InputAction.CallbackContext context)
+    public void OnNextWeaponInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if(context.started)
         {
-            GrabInput = true;
-        }
+            NextWeaponRequest.Invoke();
+        }  
+    }
 
-        if (context.canceled)
+    public void OnPreviousWeaponInput(InputAction.CallbackContext context)
+    {
+        if(context.started)
         {
-            GrabInput = false;
+            PreviousWeaponRequest.Invoke();
         }
     }
 
@@ -136,10 +140,4 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
     
-}
-
-public enum CombatInputs
-{
-    primary,
-    secondary
 }

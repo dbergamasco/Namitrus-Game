@@ -30,9 +30,6 @@ public class Hellhound : Entity
     [SerializeField]
     private D_DeadState deadStateData;
 
-    [SerializeField]
-    private Transform meleeAttackPosition;
-
     public override void Awake()
     {
         base.Awake();

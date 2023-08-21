@@ -24,7 +24,6 @@ namespace _Scripts.Weapons.Components
 
         private void HandleEnterAttackPhase(AttackPhases phase)
         {
-            Debug.Log("HandleEnterAttackPhase");
             currentWeaponSpriteIndex = 0;
             currentPhaseSprites = currentAttackData.PhaseSprites.FirstOrDefault(data => data.Phase == phase).Sprites;
         }
@@ -36,7 +35,6 @@ namespace _Scripts.Weapons.Components
                 weaponSpriteRenderer.sprite = null;
                 return;
             }
-
 
             if(currentWeaponSpriteIndex >= currentPhaseSprites.Length)
             {

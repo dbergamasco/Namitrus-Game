@@ -2,6 +2,7 @@ using _Scripts.Weapons;
 using UnityEngine;
 using _Scripts;
 using _Scripts.CoreSystem;
+using _Scripts.UI;
 
 public class Player : MonoBehaviour 
 {
@@ -37,7 +38,10 @@ public class Player : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public Transform DashDirectionIndicator { get; private set; }
-    public HealthBar healthBar;
+    public StatBar healthBar;
+
+    [SerializeField]
+    public GameObject playerHud;
 
     #endregion
 
@@ -88,7 +92,7 @@ public class Player : MonoBehaviour
     {
         Core.LogicUpdate();
         
-        healthBar.SetMaxHealth(Core.GetCoreComponent<HealthSystem>().CurrentHealth);
+        healthBar.SetMaxValue(Core.GetCoreComponent<HealthSystem>().CurrentHealth);
 
         StateMachine.CurrentState.LogicUpdate();
         

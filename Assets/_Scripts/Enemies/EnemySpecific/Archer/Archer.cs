@@ -37,13 +37,6 @@ public class Archer : Entity
     [SerializeField]
     public D_RangedAttackState rangedAttackStateData;
 
-    [SerializeField]
-    private Transform meleeAttackPosition;
-    [SerializeField]
-    private Transform rangedAttackPosition;
-
-
-
     public override void Awake()
     {
         base.Awake();
