@@ -99,7 +99,7 @@ namespace _Scripts.Weapons
             attackCounterResetTimer.Tick();
         }
 
-        private void ResetAttackCounter() => CurrentAttackCounter = 0;
+        public void ResetAttackCounter() => CurrentAttackCounter = 0;
 
         private void OnEnable()
         {

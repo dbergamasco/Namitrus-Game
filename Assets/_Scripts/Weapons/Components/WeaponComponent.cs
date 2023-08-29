@@ -7,9 +7,6 @@ namespace _Scripts.Weapons.Components
     {
         protected Weapon weapon;
 
-        //TODO: FIX this when finishing weapon data
-        //protected AnimationEventHandler EventHandler => weapon.EventHandler;
-
         protected AnimationEventHandler eventHandler;
         protected Core Core => weapon.Core;
 

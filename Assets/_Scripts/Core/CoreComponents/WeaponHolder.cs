@@ -6,7 +6,6 @@ namespace _Scripts.CoreSystem
 {
     public class WeaponHolder : CoreComponents<WeaponHolderData>
     {
-        //TODO: Found a way to reset attackCounter when we change weapon
         private WeaponGenerator weaponGenerator;
 
         private int weaponHolderMax;

@@ -68,6 +68,7 @@ namespace _Scripts.Weapons
                 Destroy(weaponComponent);
             }
 
+            weapon.ResetAttackCounter();
             anim.runtimeAnimatorController = data.AnimatorController;
         }
 

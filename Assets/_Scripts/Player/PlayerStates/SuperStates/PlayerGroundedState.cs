@@ -42,8 +42,6 @@ public class PlayerGroundedState : PlayerState
 
         player.JumpState.ResetAmountOfJumps();
 
-        
-
     }
 
     public override void Exit()
@@ -52,8 +50,6 @@ public class PlayerGroundedState : PlayerState
  
     }
     
-
-
     public override void LogicUpdate()
     {
         base.LogicUpdate();
