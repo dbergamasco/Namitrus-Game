@@ -8,6 +8,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public event Action NextWeaponRequest;
     public event Action PreviousWeaponRequest;
+    public event Action InteractiveRequest;
 
     private PlayerInput playerInput;
     private Camera cam;
@@ -96,6 +97,14 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void OnInteractiveInput(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            InteractiveRequest.Invoke();
+        }  
+    }
+
     public void OnDashInput(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -127,7 +136,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void CheckJumpInputHoldTime()
     {
-        if(Time.time >= jumpInputStartTime + inputHoldTime){
+        if(Time.time >= jumpInputStartTime + inputHoldTime)
+        {
             
             JumpInput = false;
         }

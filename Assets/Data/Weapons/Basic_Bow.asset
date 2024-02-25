@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: d4b3dcddfd9c9444f9049c4615ac93ac, type: 2}
   <NumberOfAttacks>k__BackingField: 1
+  <WeaponSpeed>k__BackingField: 1
   <ComponentData>k__BackingField:
   - rid: 8757109995189043200
   references:

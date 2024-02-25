@@ -35,11 +35,11 @@ namespace _Scripts.CoreSystem
             if(currentWeapons.Count > 0)
             {
                 weaponHolderIndex = 0;
-                weaponGenerator.ChangeWeapon(currentWeapons[weaponHolderIndex]);
+                weaponGenerator.ChangeWeapon(currentWeapons[weaponHolderIndex],currentWeapons[weaponHolderIndex].WeaponSpeed);
             }
             else
             {
-                weaponGenerator.ChangeWeapon(data.defaultWeapon);
+                weaponGenerator.ChangeWeapon(data.defaultWeapon,data.defaultWeapon.WeaponSpeed);
             }
         }
 
@@ -57,11 +57,11 @@ namespace _Scripts.CoreSystem
             {
                 weaponHolderIndex = (weaponHolderIndex + 1 + currentWeapons.Count) % currentWeapons.Count;
                 WeaponDataSO newWeapon = currentWeapons[weaponHolderIndex];
-                weaponGenerator.ChangeWeapon(newWeapon);
+                weaponGenerator.ChangeWeapon(newWeapon,newWeapon.WeaponSpeed);
             }
             else
             {
-                weaponGenerator.ChangeWeapon(data.defaultWeapon);
+                weaponGenerator.ChangeWeapon(data.defaultWeapon,data.defaultWeapon.WeaponSpeed);
             }
         }
 
@@ -71,11 +71,11 @@ namespace _Scripts.CoreSystem
             {
                 weaponHolderIndex = (weaponHolderIndex - 1 + currentWeapons.Count) % currentWeapons.Count;
                 WeaponDataSO newWeapon = currentWeapons[weaponHolderIndex];
-                weaponGenerator.ChangeWeapon(newWeapon);
+                weaponGenerator.ChangeWeapon(newWeapon,newWeapon.WeaponSpeed);
             }
             else
             {
-                weaponGenerator.ChangeWeapon(data.defaultWeapon);
+                weaponGenerator.ChangeWeapon(data.defaultWeapon,data.defaultWeapon.WeaponSpeed);
             }
         }    
     }

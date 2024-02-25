@@ -23,16 +23,16 @@ namespace _Scripts.Weapons
         {
             anim = GetComponentInChildren<Animator>();
 
-            GenerateWeapon(data);    
+            GenerateWeapon(data,data.WeaponSpeed);
         }
 
         [ContextMenu("Test Generate")]
         private void TestGeneration()
         {
-            GenerateWeapon(data);
+            GenerateWeapon(data,data.WeaponSpeed);
         }
 
-        public void GenerateWeapon(WeaponDataSO data)
+        public void GenerateWeapon(WeaponDataSO data, float weaponSpeed)
         {
             weapon.SetData(data);
 
@@ -70,11 +70,9 @@ namespace _Scripts.Weapons
 
             weapon.ResetAttackCounter();
             anim.runtimeAnimatorController = data.AnimatorController;
+            anim.speed = weaponSpeed;
         }
 
-        public void ChangeWeapon(WeaponDataSO newData)
-        {
-            GenerateWeapon(newData);
-        }
+        public void ChangeWeapon(WeaponDataSO newData, float weaponSpeed) => GenerateWeapon(newData, weaponSpeed);
     }
 }

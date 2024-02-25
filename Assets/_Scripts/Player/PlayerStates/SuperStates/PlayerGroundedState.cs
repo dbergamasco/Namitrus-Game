@@ -42,11 +42,15 @@ public class PlayerGroundedState : PlayerState
 
         player.JumpState.ResetAmountOfJumps();
 
+        player.InputHandler.InteractiveRequest += HandleInteractiveAction;
+
     }
 
     public override void Exit()
     {
         base.Exit();
+
+        player.InputHandler.InteractiveRequest += HandleInteractiveAction;
  
     }
     
@@ -80,6 +84,10 @@ public class PlayerGroundedState : PlayerState
 
     }
 
+    private void HandleInteractiveAction()
+    {
+
+    }
     
     
 }
